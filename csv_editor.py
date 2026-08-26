@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-CSV Editor GUI Layer - 界面层
+Meng_CSVEditor GUI Layer - 界面层
 包含：主窗口、查找替换对话框、行号表头、多行编辑委托、程序入口
 仅负责界面展示与用户交互，业务逻辑委托给 csv_model / csv_commands
 """
@@ -398,7 +398,7 @@ class RowNumberHeaderView(QHeaderView):
 class CsvEditorWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("CSV Editor")
+        self.setWindowTitle("Meng_CSVEditor")
         self.resize(1200, 800)
 
         self._filepath = None
@@ -628,7 +628,7 @@ class CsvEditorWindow(QMainWindow):
     def _update_title(self):
         name = os.path.basename(self._filepath) if self._filepath else "未命名"
         dirty = "" if self.undo_stack.isClean() else " *"
-        self.setWindowTitle(f"{name}{dirty} - CSV Editor")
+        self.setWindowTitle(f"{name}{dirty} - Meng_CSVEditor")
 
     def _update_size_label(self):
         r = self.model.rowCount()
@@ -648,7 +648,7 @@ class CsvEditorWindow(QMainWindow):
     # ────────── Recent files ──────────
     def _load_recent(self):
         self.recent_menu.clear()
-        settings = QSettings("CsvEditor", "CsvEditor")
+        settings = QSettings("MengCSVEditor", "MengCSVEditor")
         files = settings.value("recent_files", []) or []
         for f in files:
             if os.path.exists(f):
@@ -659,7 +659,7 @@ class CsvEditorWindow(QMainWindow):
             self.recent_menu.addAction("(空)").setEnabled(False)
 
     def _add_recent(self, path):
-        settings = QSettings("CsvEditor", "CsvEditor")
+        settings = QSettings("MengCSVEditor", "MengCSVEditor")
         files = settings.value("recent_files", []) or []
         if path in files:
             files.remove(path)
@@ -960,8 +960,8 @@ class CsvEditorWindow(QMainWindow):
     # ────────── About ──────────
     def _show_about(self):
         QMessageBox.about(
-            self, "关于 CSV Editor",
-            "CSV Editor Tool\n\n"
+            self, "关于 Meng_CSVEditor",
+            "Meng_CSVEditor\n"
             "基于 PyQt5 的轻量级 CSV 编辑器\n"
             "支持网格编辑、多行单元格、行列操作、查找替换、撤销重做\n\n"
             "提示：在单元格编辑时按 Tab 可插入换行，Ctrl+Enter 提交编辑"
@@ -978,7 +978,7 @@ class CsvEditorWindow(QMainWindow):
 # ──────────────────────── Entry Point ─────────────────────────
 def main():
     app = QApplication(sys.argv)
-    app.setApplicationName("CSV Editor")
+    app.setApplicationName("Meng_CSVEditor")
     app.setStyle("Fusion")
 
     palette = QPalette()

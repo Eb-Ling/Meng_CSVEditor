@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 >nul
 echo ========================================
-echo   CSV Editor 打包脚本
+echo   Meng_CSVEditor 打包脚本
 echo ========================================
 echo.
 
@@ -16,7 +16,7 @@ if errorlevel 1 (
 
 echo [2/2] 打包为单文件 EXE ...
 python -m PyInstaller --onefile --windowed ^
-    --name CSV_Editor ^
+    --name Meng_CSVEditor ^
     --hidden-import csv_model ^
     --hidden-import csv_commands ^
     csv_editor.py
@@ -31,6 +31,6 @@ if errorlevel 1 (
 echo.
 echo ========================================
 echo   打包完成！
-echo   输出: dist\CSV_Editor.exe
+echo   输出: dist\Meng_CSVEditor.exe
 echo ========================================
 pause

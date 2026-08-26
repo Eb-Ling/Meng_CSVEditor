@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='CSV_Editor',
+    name='Meng_CSVEditor',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
