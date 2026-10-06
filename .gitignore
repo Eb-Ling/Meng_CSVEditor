@@ -23,3 +23,16 @@ Thumbs.db
 
 # 无关工具目录
 launch4j/
+
+# Local environment and recovery evidence
+.venv/
+recovery/extracted/
+recovery/runtime/
+recovery/runtime313*/
+recovery/review-csv-*/
+recovery/audit-gui/
+recovery/*-preview.png
+recovery/preview_ui.py
+recovery/review_probe.py
+*.exe
+*.zip

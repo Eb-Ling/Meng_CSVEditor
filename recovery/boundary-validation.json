@@ -1,0 +1,41 @@
+{
+  "validated_at": "2026-10-05T19:20:27+08:00",
+  "python": "3.12.14",
+  "pyqt": "5.15.11",
+  "qt": "5.15.2",
+  "tests": {
+    "count": 158,
+    "seconds": 17.953,
+    "result": "OK",
+    "categories": {
+      "csv_io": 51,
+      "gui": 54,
+      "model": 24,
+      "commands": 15,
+      "safe_undo": 8,
+      "exception_handler": 6
+    },
+    "random_checks": {
+      "csv_roundtrips": 800,
+      "command_steps": 1000,
+      "sorted_moved_gui_roundtrips": 70
+    }
+  },
+  "exe": {
+    "path": "dist/Meng_CSVEditor.exe",
+    "bytes": 39496739,
+    "sha256": "9e2f7b3d170b03f62dea985024ad90a74a491ee4934d670afee6d7a346290e9c",
+    "smoke_exit_code": 0
+  },
+  "original_exe": {
+    "sha256": "10a366bd2d16614e3dab28b5632bdbaa4239d28c5d71742c5a8608c2b7eae933",
+    "unchanged": true
+  },
+  "source_sha256": {
+    "csv_editor.py": "8e9bddd1f38718dd604128acef58905bbbf5a3bea8b52c89a2d958e9c18bcd67",
+    "csv_model.py": "9ee96d52a9a703170c9f96d9c1eb108261044bfa9ac511977baab22ede3eef97",
+    "csv_commands.py": "a795fe85834b94d719e4f32318dd45c8d9c749b3edd1d4f85bc7a6573dfcd27d",
+    "ui_theme.py": "f691ba7d43a143623cd8bdf0b5645ac259954f6a138978b7e5b6a10ae6ed1866",
+    "crash_reporter.py": "741c4743a075b179c1a2ca79a251464b3187e6b15e90d7b32b52be650d8674cf"
+  }
+}

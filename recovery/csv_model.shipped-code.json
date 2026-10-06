@@ -1,0 +1,985 @@
+{
+  "co_name": "<module>",
+  "co_qualname": "<module>",
+  "co_filename": "csv_model.py",
+  "co_argcount": 0,
+  "co_posonlyargcount": 0,
+  "co_kwonlyargcount": 0,
+  "co_nlocals": 0,
+  "co_flags": 0,
+  "co_names": [
+    "__doc__",
+    "csv",
+    "PyQt5.QtCore",
+    "Qt",
+    "QAbstractTableModel",
+    "QModelIndex",
+    "QVariant",
+    "detect_encoding",
+    "read_csv",
+    "write_csv",
+    "CsvTableModel"
+  ],
+  "co_varnames": [],
+  "co_freevars": [],
+  "co_cellvars": [],
+  "co_code": {
+    "bytes": "950053007200530153024b017201530153034b024a0372034a0472044a0572054a067206200053041a00720753051a007208530953061a006a0172091800220053071a0053085c043503000000000000720a6702"
+  },
+  "co_stacksize": 5,
+  "co_firstlineno": 1,
+  "co_linetable": {
+    "bytes": "f003010101f104040104f30a00010bf702020102f300020102f20c0f0113f2240d0115f42004011ff4107f010116d01427f5007f010116"
+  },
+  "co_exceptiontable": {
+    "bytes": ""
+  },
+  "co_consts": [
+    "\nCSV Model Layer - 业务逻辑层\n包含 CSV 文件读写、表格数据模型（QAbstractTableModel）\n与 GUI 无关，纯粹的数据操作与模型抽象\n",
+    0,
+    null,
+    [
+      "Qt",
+      "QAbstractTableModel",
+      "QModelIndex",
+      "QVariant"
+    ],
+    {
+      "co_name": "detect_encoding",
+      "co_qualname": "detect_encoding",
+      "co_filename": "csv_model.py",
+      "co_argcount": 1,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 4,
+      "co_flags": 3,
+      "co_names": [
+        "open",
+        "read",
+        "startswith",
+        "UnicodeDecodeError",
+        "UnicodeError"
+      ],
+      "co_varnames": [
+        "filepath",
+        "f",
+        "raw",
+        "enc"
+      ],
+      "co_freevars": [],
+      "co_cellvars": [],
+      "co_code": {
+        "bytes": "95005b01000000000000000055005301350200000000000002006e0155015203000000000000000000000000000000000000530235010000000000006e02530353035303350200000000000020005702520500000000000000000000000000000000000053043501000000000000280000000000000061010000670553061300482b00006e031e005b0100000000000000005500530755035308390302006e01550152030000000000000000000000000000000000005309350100000000000020005303530353033502000000000000200055037302200024000b002000670a21002c00280000000000000064010000660220001f00200020004e573d031f00660121002c00280000000000000064010000660220001f00200020004e263d031f00660121005b0600000000000000005b080000000000000000340207006104000020001f004d65000066003d031f006601"
+      },
+      "co_stacksize": 7,
+      "co_firstlineno": 14,
+      "co_linetable": {
+        "bytes": "8000f406000a0e88689804d4091da011d80e0f8f66896690518b698803f703000a1ee0070a877e817e906fd70726d10726d80f1ae30f348803f002050915dc11159068a003a863d21132b061d81011970691069074940cf703001233e013168a4af109001035f00e000c13f719000a1ed5091dfaf70e001233d51132fbf406001123a44cd00f31f300010915da0c14f003010915fa"
+      },
+      "co_exceptiontable": {
+        "bytes": "8d12413003c1040b421202c10f12420105c12109421202c1300a413e07c2010a420f09c20b07421202c21210422605c22501422605"
+      },
+      "co_consts": [
+        "自动检测文件编码，精确识别 BOM，优先常见中文编码",
+        "rb",
+        4,
+        null,
+        {
+          "bytes": "efbbbf"
+        },
+        "utf-8-sig",
+        [
+          "utf-8",
+          "gbk",
+          "gb2312",
+          "latin-1"
+        ],
+        "r",
+        [
+          "encoding"
+        ],
+        4096,
+        "utf-8"
+      ]
+    },
+    {
+      "co_name": "read_csv",
+      "co_qualname": "read_csv",
+      "co_filename": "csv_model.py",
+      "co_argcount": 1,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 8,
+      "co_flags": 3,
+      "co_names": [
+        "detect_encoding",
+        "open",
+        "csv",
+        "reader",
+        "append",
+        "max",
+        "len"
+      ],
+      "co_varnames": [
+        "filepath",
+        "enc",
+        "rows",
+        "f",
+        "reader",
+        "row",
+        "max_cols",
+        "r"
+      ],
+      "co_freevars": [],
+      "co_cellvars": [],
+      "co_code": {
+        "bytes": "95005b010000000000000000550035010000000000006e012f006e025b03000000000000000055005301550153025303390402006e035b04000000000000000052060000000000000000000000000000000000002200550335010000000000006e0455041300481400006e05550252090000000000000000000000000000000000005505350100000000000020004d1600000b002000530453045304350200000000000020005b0b000000000000000053051a005502130035000000000000005306530739026e0655021300483600006e075b0d00000000000000005507350100000000000055063a120000640200004d140000550752090000000000000000000000000000000000005302350100000000000020005b0d00000000000000005507350100000000000055063a120000610200004d2200004d3800000b00200058213402240021002c00280000000000000064010000660220001f00200020004e5e3d031f006601"
+      },
+      "co_stacksize": 7,
+      "co_firstlineno": 32,
+      "co_linetable": {
+        "bytes": "8000e40a199828d30a238043d80b0d8044dc090d88689803a063b032d20936b821dc1114971a921a9841931d8806db13198843d80c108f4b894b9803d60c1cf10300141af705000a37f40a001013d11329a144d31329b031d10f358048db0d118801dc0e1190218b669078d50e1fd80c0d8f48894890528c4cf403000f1290218b669078d70e1ff103000e12f006000c108839d00414f713000a37d50936fa"
+      },
+      "co_exceptiontable": {
+        "bytes": "9a31422303c2230a423107"
+      },
+      "co_consts": [
+        "读取 CSV 文件，返回 (rows, encoding)；rows 为二维列表且列数对齐",
+        "r",
+        "",
+        [
+          "encoding",
+          "newline"
+        ],
+        null,
+        {
+          "co_name": "<genexpr>",
+          "co_qualname": "read_csv.<locals>.<genexpr>",
+          "co_filename": "csv_model.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 2,
+          "co_flags": 51,
+          "co_names": [
+            "len"
+          ],
+          "co_varnames": [
+            ".0",
+            "r"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "23002000950055001300481000006e015b010000000000000000550135010000000000007600950520004d1200000b002000670037036601"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 41,
+          "co_linetable": {
+            "bytes": "e9008000d01329a24498719443980197469046a244f9"
+          },
+          "co_exceptiontable": {
+            "bytes": "82181a01"
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        0,
+        [
+          "default"
+        ]
+      ]
+    },
+    {
+      "co_name": "write_csv",
+      "co_qualname": "write_csv",
+      "co_filename": "csv_model.py",
+      "co_argcount": 3,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 5,
+      "co_flags": 3,
+      "co_names": [
+        "open",
+        "csv",
+        "writer",
+        "writerows"
+      ],
+      "co_varnames": [
+        "filepath",
+        "rows",
+        "encoding",
+        "f",
+        "writer"
+      ],
+      "co_freevars": [],
+      "co_cellvars": [],
+      "co_code": {
+        "bytes": "95005b01000000000000000055005301550253025303390402006e035b02000000000000000052040000000000000000000000000000000000002200550335010000000000006e045504520700000000000000000000000000000000000055013501000000000000200053045304530435020000000000002000670421002c00280000000000000064010000660220001f002000200067043d031f006601"
+      },
+      "co_stacksize": 7,
+      "co_firstlineno": 48,
+      "co_linetable": {
+        "bytes": "8000e4090d88689803a068b802d2093bb871dc1114971a921a9841931d8806d8080ed70818d108189814d4081ef705000a3cd7093bd6093bfa"
+      },
+      "co_exceptiontable": {
+        "bytes": "8d283e03be0a410c07"
+      },
+      "co_consts": [
+        "将二维列表写入 CSV 文件",
+        "w",
+        "",
+        [
+          "encoding",
+          "newline"
+        ],
+        null
+      ]
+    },
+    {
+      "co_name": "CsvTableModel",
+      "co_qualname": "CsvTableModel",
+      "co_filename": "csv_model.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "QModelIndex",
+        "rowCount",
+        "columnCount",
+        "Qt",
+        "DisplayRole",
+        "data",
+        "EditRole",
+        "setData",
+        "_set_data",
+        "flags",
+        "headerData",
+        "load_data",
+        "get_all_data",
+        "get_block",
+        "insertRows",
+        "removeRows",
+        "insertColumns",
+        "removeColumns",
+        "staticmethod",
+        "_col_letter",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c00720153007202530172035302720453145500340153031a006a086a0172055c0622003500000000000000340153041a006a0172075c0622003500000000000000340153051a006a0172085c095214000000000000000000000000000000000000340153061a006a01720b5c095218000000000000000000000000000000000000340153071a006a01720d53081a00720e53091a00720f5c0952140000000000000000000000000000000000003401530a1a006a017210530b1a007211530c1a007212530d1a0072135c06220035000000000000003401530e1a006a0172145c06220035000000000000003401530f1a006a0172155c0622003500000000000000340153101a006a0172165c0622003500000000000000340153111a006a0172175c1853121a00350000000000000072195313721a55003d01721b2400"
+      },
+      "co_stacksize": 3,
+      "co_firstlineno": 56,
+      "co_linetable": {
+        "bytes": "f88600d90465f70403051bf10c001f2a9b6df40001051ff10600222da31df400030511f00a0020229f7e997ef40007051af012002a2caf1ba91bf400080515f21405054b01f20e01054a01f006003537b74eb14ef400070520f21404051df20c01052df2060c0515f11e002d38ab4df400060514f110002d38ab4df400060514f11000303bab7df400070514f11200303bab7df4000a0514f01a000612f102080516f303000612f602080516"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "CsvTableModel",
+        56,
+        "CSV 数据的 Qt 表格模型，负责数据存取与结构操作，不含任何 GUI 逻辑",
+        {
+          "co_name": "__init__",
+          "co_qualname": "CsvTableModel.__init__",
+          "co_filename": "csv_model.py",
+          "co_argcount": 2,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 2,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "_data",
+            "_headers"
+          ],
+          "co_varnames": [
+            "self",
+            "parent"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540255005d0500005501350100000000000020002f0055006c0200000000000000002f0055006c0300000000000000006700"
+          },
+          "co_stacksize": 3,
+          "co_firstlineno": 59,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d108189816d40820d8151788048c0ad8181a88048d0d"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "rowCount",
+          "co_qualname": "CsvTableModel.rowCount",
+          "co_filename": "csv_model.py",
+          "co_argcount": 2,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 2,
+          "co_flags": 3,
+          "co_names": [
+            "len",
+            "_data"
+          ],
+          "co_varnames": [
+            "self",
+            "parent"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005b0100000000000000005500520200000000000000000000000000000000000035010000000000002400"
+          },
+          "co_stacksize": 3,
+          "co_firstlineno": 65,
+          "co_linetable": {
+            "bytes": "8000dc0f129034973a913a8b7fd0081e"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "columnCount",
+          "co_qualname": "CsvTableModel.columnCount",
+          "co_filename": "csv_model.py",
+          "co_argcount": 2,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 2,
+          "co_flags": 3,
+          "co_names": [
+            "_data",
+            "len"
+          ],
+          "co_varnames": [
+            "self",
+            "parent"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052000000000000000000000000000000000000002800000000000000611800005b03000000000000000055005200000000000000000000000000000000000000530105000000350100000000000024006701"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 68,
+          "co_linetable": {
+            "bytes": "8000d80b0f8f3a8f3adc13169074977a917aa021917dd31325d00c25d80f10"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            0
+          ]
+        },
+        {
+          "co_name": "data",
+          "co_qualname": "CsvTableModel.data",
+          "co_filename": "csv_model.py",
+          "co_argcount": 3,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 5,
+          "co_flags": 3,
+          "co_names": [
+            "isValid",
+            "QVariant",
+            "row",
+            "column",
+            "Qt",
+            "DisplayRole",
+            "EditRole",
+            "len",
+            "_data"
+          ],
+          "co_varnames": [
+            "self",
+            "index",
+            "role",
+            "r",
+            "c"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005501520100000000000000000000000000000000000035000000000000002800000000000000640a00005b03000000000000000035000000000000002400550152050000000000000000000000000000000000003500000000000000550152070000000000000000000000000000000000003500000000000000704355025b080000000000000000520a0000000000000000000000000000000000005b080000000000000000520c00000000000000000000000000000000000034023b000000616d00005301550373023d023a3a0000611900005b0f00000000000000005500521000000000000000000000000000000000000035010000000000003a120000614d00004f0b20005b030000000000000000350000000000000024005301550473023d023a3a0000611c00005b0f00000000000000005500521000000000000000000000000000000000000055030500000035010000000000003a120000611e00004f0b20005b030000000000000000350000000000000024005500521000000000000000000000000000000000000055030500000055040500000024005b03000000000000000035000000000000002400"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 73,
+          "co_linetable": {
+            "bytes": "8000d80f148f7d897d8f7f897fdc131b933ad00c1dd80f148f7989798b7b98459f4c994c9b4e8831d80b0f9442974e914ea442a74ba14bd01330d30b30d80f109041d50f279c0398449f4a994a9b0fd50f27e40f178b7ad00819f005002d2eb011d52c47b453b814bf1ab91ac041b91dd33547d52c47e40f178b7ad00819f00300181c977a917aa021917da051d11727d01027dc0f178b7ad00819"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            0
+          ]
+        },
+        {
+          "co_name": "setData",
+          "co_qualname": "CsvTableModel.setData",
+          "co_filename": "csv_model.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 6,
+          "co_flags": 3,
+          "co_names": [
+            "isValid",
+            "Qt",
+            "EditRole",
+            "row",
+            "column",
+            "len",
+            "_data",
+            "str",
+            "dataChanged",
+            "emit",
+            "DisplayRole"
+          ],
+          "co_varnames": [
+            "self",
+            "index",
+            "value",
+            "role",
+            "r",
+            "c"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "950055015201000000000000000000000000000000000000350000000000000028000000000000006114000055035b02000000000000000052040000000000000000000000000000000000003a77000061010000670155015207000000000000000000000000000000000000350000000000000055015209000000000000000000000000000000000000350000000000000070545302550473023d023a3a0000611900005b0b00000000000000005500520c00000000000000000000000000000000000035010000000000003a120000617f00004f02200067015302550573023d023a3a0000611c00005b0b00000000000000005500520c00000000000000000000000000000000000055040500000035010000000000003a120000615900004f02200067015b0f0000000000000000550235010000000000005500520c00000000000000000000000000000000000055040500000055052700000055005210000000000000000000000000000000000000521300000000000000000000000000000000000058115b02000000000000000052140000000000000000000000000000000000005b02000000000000000052040000000000000000000000000000000000002f023503000000000000200067036701"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 82,
+          "co_linetable": {
+            "bytes": "8000d80f148f7d897d8f7f897fa024ac22af2ba92bd32235d81318d80f148f7989798b7b98459f4c994c9b4e8831d80b0c9001d50b23944398049f0a990a934fd50b23f008001015f00900292aa851d52843b413b054b75ab15ac001b15dd33143d52843f008001015f407002023a0359b7a88448f4a894a9071894d9821d10c1cd80c10d70c1cd10c1cd70c21d10c21a025b412b71eb11ec412c71bc11bd0304dd40c4ed81317d80f14"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            false,
+            0,
+            true
+          ]
+        },
+        {
+          "co_name": "_set_data",
+          "co_qualname": "CsvTableModel._set_data",
+          "co_filename": "csv_model.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 5,
+          "co_flags": 3,
+          "co_names": [
+            "len",
+            "_data",
+            "str",
+            "index",
+            "dataChanged",
+            "emit",
+            "Qt",
+            "DisplayRole",
+            "EditRole"
+          ],
+          "co_varnames": [
+            "self",
+            "row",
+            "col",
+            "value",
+            "idx"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005301550173023d023a3a0000611900005b0100000000000000005500520200000000000000000000000000000000000035010000000000003a120000619100004f02200067025301550273023d023a3a0000611c00005b0100000000000000005500520200000000000000000000000000000000000055010500000035010000000000003a120000616a00004f02200067025b050000000000000000550335010000000000005500520200000000000000000000000000000000000055010500000055022700000055005207000000000000000000000000000000000000581235020000000000006e0455005208000000000000000000000000000000000000520b00000000000000000000000000000000000058445b0c0000000000000000520e0000000000000000000000000000000000005b0c000000000000000052100000000000000000000000000000000000002f0235030000000000002000670267026702"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 92,
+          "co_linetable": {
+            "bytes": "8000e00b0c9003d50b25946398249f2a992a936fd60b25a821a873d52a49b453b814bf1ab91ac043b91fd33549d62a49dc2326a075a33a88448f4a894a9073894f9843d10c20d81216972a912a9853d312268843d80c10d70c1cd10c1cd70c21d10c21a023ac52af5ea95ebc52bf5bb95bd02c49d50c4af007002b4a01d00b25"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            "直接写入数据（供 Undo 命令使用，不触发额外 Undo 记录）",
+            0,
+            null
+          ]
+        },
+        {
+          "co_name": "flags",
+          "co_qualname": "CsvTableModel.flags",
+          "co_filename": "csv_model.py",
+          "co_argcount": 2,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 2,
+          "co_flags": 3,
+          "co_names": [
+            "Qt",
+            "ItemIsSelectable",
+            "ItemIsEditable",
+            "ItemIsEnabled"
+          ],
+          "co_varnames": [
+            "self",
+            "index"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005b00000000000000000052020000000000000000000000000000000000005b00000000000000000052040000000000000000000000000000000000002d0700005b00000000000000000052060000000000000000000000000000000000002d0700002400"
+          },
+          "co_stacksize": 2,
+          "co_firstlineno": 99,
+          "co_linetable": {
+            "bytes": "8000dc0f11d70f22d10f22a452d72536d12536d10f36bc12d73949d13949d10f49d00849"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "headerData",
+          "co_qualname": "CsvTableModel.headerData",
+          "co_filename": "csv_model.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "Qt",
+            "DisplayRole",
+            "QVariant",
+            "Horizontal",
+            "len",
+            "_headers",
+            "_col_letter",
+            "str"
+          ],
+          "co_varnames": [
+            "self",
+            "section",
+            "orientation",
+            "role"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "950055035b00000000000000000052020000000000000000000000000000000000003a770000610a00005b0500000000000000003500000000000000240055025b00000000000000000052060000000000000000000000000000000000003a5800006139000055015b0900000000000000005500520a00000000000000000000000000000000000035010000000000003a120000610f00005500520a00000000000000000000000000000000000055010500000024005500520d0000000000000000000000000000000000005501350100000000000024005b0f0000000000000000550153012d00000035010000000000002400"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 102,
+          "co_linetable": {
+            "bytes": "8000d80b0f9432973e913ed30b21dc131b933ad00c1dd80b169c229f2d992dd30b27d80f169c1398549f5d995dd3192bd30f2bd8171b977d917da057d1172dd0102dd81317d71323d11323a047d3132cd00c2cdc0f1290379851913bd30f1fd0081f"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            1
+          ]
+        },
+        {
+          "co_name": "load_data",
+          "co_qualname": "CsvTableModel.load_data",
+          "co_filename": "csv_model.py",
+          "co_argcount": 2,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "beginResetModel",
+            "list",
+            "_data",
+            "range",
+            "columnCount",
+            "_col_letter",
+            "_headers",
+            "endResetModel"
+          ],
+          "co_varnames": [
+            "self",
+            "rows",
+            "r",
+            "i"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052010000000000000000000000000000000000003500000000000000200055011300560273022f0073021300480e00006e025b0300000000000000005502350100000000000050024d1000000b00200073026e0255006c0200000000000000005b07000000000000000055005209000000000000000000000000000000000000350000000000000035010000000000001300560373022f0073021300481300006f30520b0000000000000000000000000000000000005503350100000000000050024d1500000b00200073026e0355006c0600000000000000005500520f0000000000000000000000000000000000003500000000000000200067007302200073026e0266007302200073026e036600"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 112,
+          "co_linetable": {
+            "bytes": "8000d8080cd7081cd1081cd4081ed9272bd3152ca274a021946498319667a174d1152c88048c0adc363bb844d73c4cd13c4cd33c4ed4364fd31850d2364fb011d71929d11929a821d6192cd1364fd1185088048c0dd8080cd7081ad1081ad5081cf9f20500162df9da1850"
+          },
+          "co_exceptiontable": {
+            "bytes": "9515420004c10d1a420504"
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "get_all_data",
+          "co_qualname": "CsvTableModel.get_all_data",
+          "co_filename": "csv_model.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 2,
+          "co_flags": 3,
+          "co_names": [
+            "_data",
+            "list"
+          ],
+          "co_varnames": [
+            "self",
+            "r"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052000000000000000000000000000000000000001300560173022f0073021300480e00006e015b0300000000000000005501350100000000000050024d1000000b00200073026e0124007302200073026e016600"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 118,
+          "co_linetable": {
+            "bytes": "8000d82125a71aa21ad30f2ca21a9841940490519607a11ad10f2cd0082cf9d20f2c"
+          },
+          "co_exceptiontable": {
+            "bytes": "8f152704"
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "get_block",
+          "co_qualname": "CsvTableModel.get_block",
+          "co_filename": "csv_model.py",
+          "co_argcount": 5,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 11,
+          "co_flags": 3,
+          "co_names": [
+            "range",
+            "len",
+            "_data",
+            "append"
+          ],
+          "co_varnames": [
+            "self",
+            "start_row",
+            "start_col",
+            "rows",
+            "cols",
+            "block",
+            "i",
+            "row_data",
+            "j",
+            "r",
+            "c"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95002f006e055b01000000000000000055033501000000000000130048ac00006e062f006e075b010000000000000000550435010000000000001300488700006e0858162d00000058282d00000070a95301550973023d023a3a0000611900005b0300000000000000005500520400000000000000000000000000000000000035010000000000003a120000614c00004f0220004f495301550a73023d023a3a0000611c00005b0300000000000000005500520400000000000000000000000000000000000055090500000035010000000000003a120000612600004f0220004f235507520700000000000000000000000000000000000055005204000000000000000000000000000000000000550905000000550a05000000350100000000000020004d760000550752070000000000000000000000000000000000005302350100000000000020004d8900000b002000550552070000000000000000000000000000000000005507350100000000000020004dae00000b00200055052400"
+          },
+          "co_stacksize": 7,
+          "co_firstlineno": 121,
+          "co_linetable": {
+            "bytes": "8000e010128805dc11169074961b8841d817198848dc151a9834965b9001d81720917da069a16d9031d813149801d5132b9c43a004a70aa10a9b4fd6132bb001b051d5304bbc13b854bf5ab95ac801b95dd3394bd6304bd8141c974f914fa044a74aa14aa871a14db021d12434d61435e0141c974f914fa042d61427f10b001621f00c000d128f4c894c9818d60c22f11100121df012001015880c"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            "获取指定区域的数据块",
+            0,
+            ""
+          ]
+        },
+        {
+          "co_name": "insertRows",
+          "co_qualname": "CsvTableModel.insertRows",
+          "co_filename": "csv_model.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 6,
+          "co_flags": 3,
+          "co_names": [
+            "beginInsertRows",
+            "columnCount",
+            "range",
+            "_data",
+            "insert",
+            "endInsertRows"
+          ],
+          "co_varnames": [
+            "self",
+            "row",
+            "count",
+            "parent",
+            "ncols",
+            "_"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "950055005201000000000000000000000000000000000000583158122d00000053012d0a0000350300000000000020005500520300000000000000000000000000000000000035000000000000003d01280000000000000064020000200053016e045b050000000000000000550235010000000000001300482300006e05550052060000000000000000000000000000000000005209000000000000000000000000000000000000550153022f0155042d050000350200000000000020004d2500000b0020005500520b000000000000000000000000000000000000350000000000000020006703"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 136,
+          "co_linetable": {
+            "bytes": "8000d8080cd7081cd1081c9856a823a92bb801a92fd4083ad81014d71020d11020d31022d71027a0618805dc11169075961c8841d80c108f4a894ad70c1dd10c1d9863a042a034a825a13cd60c30f10300121ee0080cd7081ad1081ad4081cd80f13"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            1,
+            "",
+            true
+          ]
+        },
+        {
+          "co_name": "removeRows",
+          "co_qualname": "CsvTableModel.removeRows",
+          "co_filename": "csv_model.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "len",
+            "_data",
+            "beginRemoveRows",
+            "endRemoveRows"
+          ],
+          "co_varnames": [
+            "self",
+            "row",
+            "count",
+            "parent"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550153013a120000641b000058122d0000005b0100000000000000005500520200000000000000000000000000000000000035010000000000003a94000061010000670255005205000000000000000000000000000000000000583158122d00000053032d0a00003503000000000000200055005202000000000000000000000000000000000000581155022d0000003202090055005207000000000000000000000000000000000000350000000000000020006704"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 144,
+          "co_linetable": {
+            "bytes": "8000d80b0e90118b379063916ba443a804af0aa90aa34fd31633d81318d8080cd7081cd1081c9856a823a92bb801a92fd4083ad80c108f4a894a9073a015993b907fd00c27d8080cd7081ad1081ad4081cd80f13"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            0,
+            false,
+            1,
+            true
+          ]
+        },
+        {
+          "co_name": "insertColumns",
+          "co_qualname": "CsvTableModel.insertColumns",
+          "co_filename": "csv_model.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 7,
+          "co_flags": 3,
+          "co_names": [
+            "beginInsertColumns",
+            "_data",
+            "range",
+            "insert",
+            "columnCount",
+            "_col_letter",
+            "_headers",
+            "endInsertColumns"
+          ],
+          "co_varnames": [
+            "self",
+            "col",
+            "count",
+            "parent",
+            "r",
+            "_",
+            "i"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "950055005201000000000000000000000000000000000000583158122d00000053012d0a000035030000000000002000550052020000000000000000000000000000000000001300482700006e045b050000000000000000550235010000000000001300481500006e055504520700000000000000000000000000000000000055015302350200000000000020004d1700000b0020004d2900000b0020005b05000000000000000055005209000000000000000000000000000000000000350000000000000035010000000000001300560673022f0073021300481300006f60520b0000000000000000000000000000000000005506350100000000000050024d1500000b00200073026e0655006c0600000000000000005500520f0000000000000000000000000000000000003500000000000000200067037302200073026e066600"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 152,
+          "co_linetable": {
+            "bytes": "8000d8080cd7081fd1081fa006a853a95bb831a95fd4083dd81115971a941a8841dc151a9835965c9001d810119708910898139862d61021f303001622f10300121cf40600373cb844d73c4cd13c4cd33c4ed4364fd31850d2364fb011d71929d11929a821d6192cd1364fd1185088048c0dd8080cd7081dd1081dd4081fd80f13f9f20500195101"
+          },
+          "co_exceptiontable": {
+            "bytes": "c12a1a421d04"
+          },
+          "co_consts": [
+            null,
+            1,
+            "",
+            true
+          ]
+        },
+        {
+          "co_name": "removeColumns",
+          "co_qualname": "CsvTableModel.removeColumns",
+          "co_filename": "csv_model.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 6,
+          "co_flags": 3,
+          "co_names": [
+            "_data",
+            "len",
+            "beginRemoveColumns",
+            "range",
+            "columnCount",
+            "_col_letter",
+            "_headers",
+            "endRemoveColumns"
+          ],
+          "co_varnames": [
+            "self",
+            "col",
+            "count",
+            "parent",
+            "r",
+            "i"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052000000000000000000000000000000000000002800000000000000640100006701550153023a120000641e000058122d0000005b0300000000000000005500520000000000000000000000000000000000000053020500000035010000000000003a94000061010000670155005205000000000000000000000000000000000000583158122d00000053032d0a000035030000000000002000550052000000000000000000000000000000000000001300480900006e04584158122d000000320209004d0b00000b0020005b07000000000000000055005209000000000000000000000000000000000000350000000000000035010000000000001300560573022f0073021300481300006f50520b0000000000000000000000000000000000005505350100000000000050024d1500000b00200073026e0555006c0600000000000000005500520f0000000000000000000000000000000000003500000000000000200067047302200073026e056600"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 161,
+          "co_linetable": {
+            "bytes": "8000d80f138f7a8f7ad81318d80b0e90118b379063916ba443a804af0aa90ab031a90dd32436d31636d81318d8080cd7081fd1081fa006a853a95bb831a95fd4083dd81115971a941a8841d810119063916b902fd21022f10300121ce4363bb844d73c4cd13c4cd33c4ed4364fd31850d2364fb011d71929d11929a821d6192cd1364fd1185088048c0dd8080cd7081dd1081dd4081fd80f13f9f20500195101"
+          },
+          "co_exceptiontable": {
+            "bytes": "c2031a423604"
+          },
+          "co_consts": [
+            null,
+            false,
+            0,
+            1,
+            true
+          ]
+        },
+        {
+          "co_name": "_col_letter",
+          "co_qualname": "CsvTableModel._col_letter",
+          "co_filename": "csv_model.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 2,
+          "co_flags": 3,
+          "co_names": [
+            "chr",
+            "ord"
+          ],
+          "co_varnames": [
+            "col",
+            "result"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "950053016e01550053022d0d00006e00550053033a940000612f0000550053022d1700006e005b0100000000000000005b03000000000000000053043501000000000000550053052d0600002d000000350100000000000055012d0000006e01550053052d0f00006e00550053033a940000610200004d2f000055012400"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 174,
+          "co_linetable": {
+            "bytes": "8000f0060012148806d8080b887189088803d80e1190418b67d80c0f903189488843dc15189c1398539b18a043a822a148d1192cd3152db006d115368846d80c0f9042894a8843f007000f1290418d67f008001016880d"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            "将列索引转换为 A, B, ..., Z, AA, AB, ... 格式",
+            "",
+            1,
+            0,
+            "A",
+            26
+          ]
+        },
+        [
+          "_data",
+          "_headers"
+        ],
+        [
+          null
+        ]
+      ]
+    },
+    "CsvTableModel",
+    [
+      "utf-8"
+    ]
+  ]
+}

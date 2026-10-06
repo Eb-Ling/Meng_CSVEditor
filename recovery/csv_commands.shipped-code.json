@@ -1,0 +1,1241 @@
+{
+  "co_name": "<module>",
+  "co_qualname": "<module>",
+  "co_filename": "csv_commands.py",
+  "co_argcount": 0,
+  "co_posonlyargcount": 0,
+  "co_kwonlyargcount": 0,
+  "co_nlocals": 0,
+  "co_flags": 0,
+  "co_names": [
+    "__doc__",
+    "PyQt5.QtWidgets",
+    "QUndoCommand",
+    "CellEditCommand",
+    "InsertRowsCommand",
+    "DeleteRowsCommand",
+    "InsertColsCommand",
+    "DeleteColsCommand",
+    "PasteCommand",
+    "ClearSelectionCommand"
+  ],
+  "co_varnames": [],
+  "co_freevars": [],
+  "co_cellvars": [],
+  "co_code": {
+    "bytes": "950053007200530153024b014a02720220001800220053031a0053045c02350300000000000072031800220053051a0053065c02350300000000000072041800220053071a0053085c02350300000000000072051800220053091a00530a5c023503000000000000720618002200530b1a00530c5c023503000000000000720718002200530d1a00530e5c023503000000000000720818002200530f1a0053105c02350300000000000072096711"
+  },
+  "co_stacksize": 5,
+  "co_firstlineno": 1,
+  "co_linetable": {
+    "bytes": "f003010101f104030104f508000129f4060c013f906cf4000c013ff41e0c0134980cf4000c0134f41e10013b980cf40010013bf4260c0137980cf4000c0137f41e11014e01980cf40011014e01f428150134903cf400150134f4300d012a984cf5000d012a"
+  },
+  "co_exceptiontable": {
+    "bytes": ""
+  },
+  "co_consts": [
+    "\nCSV Commands Layer - 撤销/重做命令层\n所有 QUndoCommand 子类，仅依赖 csv_model，不依赖任何 GUI 组件\n",
+    0,
+    [
+      "QUndoCommand"
+    ],
+    {
+      "co_name": "CellEditCommand",
+      "co_qualname": "CellEditCommand",
+      "co_filename": "csv_commands.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "redo",
+        "undo",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c0072015300720253017203530272045500340153031a006a08720553041a00720653051a0072075306720855003d0172092400"
+      },
+      "co_stacksize": 2,
+      "co_firstlineno": 9,
+      "co_linetable": {
+        "bytes": "f88600d90428f502040536f20c01053ff70601053ff00001053f"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "CellEditCommand",
+        9,
+        "单个单元格的编辑操作",
+        {
+          "co_name": "__init__",
+          "co_qualname": "CellEditCommand.__init__",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 6,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 6,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "model",
+            "row",
+            "col",
+            "old_val",
+            "new_val"
+          ],
+          "co_varnames": [
+            "self",
+            "model",
+            "row",
+            "col",
+            "old_val",
+            "new_val"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540655005d050000530155020e00530255030e00530333053501000000000000200058106c0200000000000000005823730255006c03000000000000000055006c0400000000000000005845730255006c05000000000000000055006c0600000000000000006700"
+          },
+          "co_stacksize": 7,
+          "co_firstlineno": 11,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d108189836a023a015a061a803a075a841d0192ed4082fd8151a8c0ad81d20d0081a88048c0890249428d8252cd0082288048c0c9064956c"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            "Edit (",
+            ",",
+            ")"
+          ]
+        },
+        {
+          "co_name": "redo",
+          "co_qualname": "CellEditCommand.redo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "_set_data",
+            "row",
+            "col",
+            "new_val"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052000000000000000000000000000000000000005203000000000000000000000000000000000000550052040000000000000000000000000000000000005500520600000000000000000000000000000000000055005208000000000000000000000000000000000000350300000000000020006700"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 17,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad7081cd1081c98549f589958a074a778a178b014b71cb11cd5083e"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "undo",
+          "co_qualname": "CellEditCommand.undo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "_set_data",
+            "row",
+            "col",
+            "old_val"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052000000000000000000000000000000000000005203000000000000000000000000000000000000550052040000000000000000000000000000000000005500520600000000000000000000000000000000000055005208000000000000000000000000000000000000350300000000000020006700"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 20,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad7081cd1081c98549f589958a074a778a178b014b71cb11cd5083e"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        [
+          "col",
+          "model",
+          "new_val",
+          "old_val",
+          "row"
+        ]
+      ]
+    },
+    "CellEditCommand",
+    {
+      "co_name": "InsertRowsCommand",
+      "co_qualname": "InsertRowsCommand",
+      "co_filename": "csv_commands.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "redo",
+        "undo",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c00720153007202530172035302720453075500340153031a006a086a01720553041a00720653051a0072075306720855003d0172092400"
+      },
+      "co_stacksize": 3,
+      "co_firstlineno": 24,
+      "co_linetable": {
+        "bytes": "f88600d90413f70204051bf20c010534f706010534f000010534"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "InsertRowsCommand",
+        24,
+        "插入行",
+        {
+          "co_name": "__init__",
+          "co_qualname": "InsertRowsCommand.__init__",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "model",
+            "row",
+            "count"
+          ],
+          "co_varnames": [
+            "self",
+            "model",
+            "row",
+            "count"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540455005d050000530155030e00530233033501000000000000200058106c02000000000000000058206c03000000000000000058306c0400000000000000006700"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 26,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d108189837a035a027a817d01931d40832d8151a8c0ad813168c08d8151a8d0a"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            "Insert ",
+            " row(s)"
+          ]
+        },
+        {
+          "co_name": "redo",
+          "co_qualname": "InsertRowsCommand.redo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "insertRows",
+            "row",
+            "count"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020006700"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 32,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad7081dd1081d98649f689968a804af0aa90ad50833"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "undo",
+          "co_qualname": "InsertRowsCommand.undo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "removeRows",
+            "row",
+            "count"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020006700"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 35,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad7081dd1081d98649f689968a804af0aa90ad50833"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        [
+          "count",
+          "model",
+          "row"
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "InsertRowsCommand",
+    {
+      "co_name": "DeleteRowsCommand",
+      "co_qualname": "DeleteRowsCommand",
+      "co_filename": "csv_commands.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "redo",
+        "undo",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c0072015300720253017203530272045500340153031a006a08720553041a00720653051a0072075306720855003d0172092400"
+      },
+      "co_stacksize": 2,
+      "co_firstlineno": 39,
+      "co_linetable": {
+        "bytes": "f88600d90434f502050525f20e010534f70604053bf00004053b"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "DeleteRowsCommand",
+        39,
+        "删除行（保存数据以支持撤销）",
+        {
+          "co_name": "__init__",
+          "co_qualname": "DeleteRowsCommand.__init__",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 5,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 5,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "model",
+            "row",
+            "count",
+            "saved_data"
+          ],
+          "co_varnames": [
+            "self",
+            "model",
+            "row",
+            "count",
+            "saved_data"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540555005d050000530155030e00530233033501000000000000200058106c02000000000000000058206c03000000000000000058306c04000000000000000058406c0500000000000000006700"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 41,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d108189837a035a027a817d01931d40832d8151a8c0ad813168c08d8151a8c0ad81a248d0f"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            "Delete ",
+            " row(s)"
+          ]
+        },
+        {
+          "co_name": "redo",
+          "co_qualname": "DeleteRowsCommand.redo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "removeRows",
+            "row",
+            "count"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020006700"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 48,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad7081dd1081d98649f689968a804af0aa90ad50833"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "undo",
+          "co_qualname": "DeleteRowsCommand.undo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 5,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "insertRows",
+            "row",
+            "count",
+            "enumerate",
+            "saved_data",
+            "_set_data"
+          ],
+          "co_varnames": [
+            "self",
+            "i",
+            "row_data",
+            "j",
+            "val"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020005b0900000000000000005500520a00000000000000000000000000000000000035010000000000001300484200007502000070125b090000000000000000550235010000000000001300482e000075020000703455005200000000000000000000000000000000000000520d0000000000000000000000000000000000005500520400000000000000000000000000000000000055012d0000005834350300000000000020004d3000000b0020004d4400000b0020006700"
+          },
+          "co_stacksize": 7,
+          "co_firstlineno": 51,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad7081dd1081d98649f689968a804af0aa90ad40833dc1b24a054a75fa15fd61b35894b8841dc1a23a048d61a2d91069001d81014970a910ad71024d11024a054a758a158b001a15cb031d6103af303001b2ef203001c36"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        [
+          "count",
+          "model",
+          "row",
+          "saved_data"
+        ]
+      ]
+    },
+    "DeleteRowsCommand",
+    {
+      "co_name": "InsertColsCommand",
+      "co_qualname": "InsertColsCommand",
+      "co_filename": "csv_commands.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "redo",
+        "undo",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c00720153007202530172035302720453075500340153031a006a086a01720553041a00720653051a0072075306720855003d0172092400"
+      },
+      "co_stacksize": 3,
+      "co_firstlineno": 58,
+      "co_linetable": {
+        "bytes": "f88600d90413f70204051bf20c010537f706010537f000010537"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "InsertColsCommand",
+        58,
+        "插入列",
+        {
+          "co_name": "__init__",
+          "co_qualname": "InsertColsCommand.__init__",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 4,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "model",
+            "col",
+            "count"
+          ],
+          "co_varnames": [
+            "self",
+            "model",
+            "col",
+            "count"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540455005d050000530155030e00530233033501000000000000200058106c02000000000000000058206c03000000000000000058306c0400000000000000006700"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 60,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d108189837a035a027a81ad01934d40835d8151a8c0ad813168c08d8151a8d0a"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            "Insert ",
+            " column(s)"
+          ]
+        },
+        {
+          "co_name": "redo",
+          "co_qualname": "InsertColsCommand.redo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "insertColumns",
+            "col",
+            "count"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020006700"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 66,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad70820d10820a014a718a118a834af3aa93ad50836"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "undo",
+          "co_qualname": "InsertColsCommand.undo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "removeColumns",
+            "col",
+            "count"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020006700"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 69,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad70820d10820a014a718a118a834af3aa93ad50836"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        [
+          "col",
+          "count",
+          "model"
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "InsertColsCommand",
+    {
+      "co_name": "DeleteColsCommand",
+      "co_qualname": "DeleteColsCommand",
+      "co_filename": "csv_commands.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "redo",
+        "undo",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c0072015300720253017203530272045500340153031a006a08720553041a00720653051a0072075306720855003d0172092400"
+      },
+      "co_stacksize": 2,
+      "co_firstlineno": 73,
+      "co_linetable": {
+        "bytes": "f88600d90434f502050525f20e010537f70605054e01f00005054e01"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "DeleteColsCommand",
+        73,
+        "删除列（保存数据以支持撤销）",
+        {
+          "co_name": "__init__",
+          "co_qualname": "DeleteColsCommand.__init__",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 5,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 5,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "model",
+            "col",
+            "count",
+            "saved_data"
+          ],
+          "co_varnames": [
+            "self",
+            "model",
+            "col",
+            "count",
+            "saved_data"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540555005d050000530155030e00530233033501000000000000200058106c02000000000000000058206c03000000000000000058306c04000000000000000058406c0500000000000000006700"
+          },
+          "co_stacksize": 5,
+          "co_firstlineno": 75,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d108189837a035a027a81ad01934d40835d8151a8c0ad813168c08d8151a8c0ad81a248d0f"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            "Delete ",
+            " column(s)"
+          ]
+        },
+        {
+          "co_name": "redo",
+          "co_qualname": "DeleteColsCommand.redo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 1,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "removeColumns",
+            "col",
+            "count"
+          ],
+          "co_varnames": [
+            "self"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020006700"
+          },
+          "co_stacksize": 4,
+          "co_firstlineno": 82,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad70820d10820a014a718a118a834af3aa93ad50836"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "undo",
+          "co_qualname": "DeleteColsCommand.undo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "model",
+            "insertColumns",
+            "col",
+            "count",
+            "range",
+            "rowCount",
+            "enumerate",
+            "saved_data",
+            "len",
+            "_set_data"
+          ],
+          "co_varnames": [
+            "self",
+            "row_idx",
+            "i",
+            "val"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005500520000000000000000000000000000000000000052030000000000000000000000000000000000005500520400000000000000000000000000000000000055005206000000000000000000000000000000000000350200000000000020005b09000000000000000055005200000000000000000000000000000000000000520b000000000000000000000000000000000000350000000000000035010000000000001300485d00006e015b0d00000000000000005500520e000000000000000000000000000000000000350100000000000013004841000075020000702355015b110000000000000000550335010000000000003a120000640200004d1600005500520000000000000000000000000000000000000052130000000000000000000000000000000000005810520400000000000000000000000000000000000055022d000000583105000000350300000000000020004d4300000b0020004d5f00000b0020006700"
+          },
+          "co_stacksize": 8,
+          "co_firstlineno": 85,
+          "co_linetable": {
+            "bytes": "8000d8080c8f0a890ad70820d10820a014a718a118a834af3aa93ad40836dc171c98549f5a995ad71d30d11d30d31d32d617338847dc1a23a044a74fa14fd61a3491069001d8131a9c53a0139b58d51325d81418974a914ad71428d11428a817b728b128b851b12cc003c10cd6144df305001b35f203001834"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        [
+          "col",
+          "count",
+          "model",
+          "saved_data"
+        ]
+      ]
+    },
+    "DeleteColsCommand",
+    {
+      "co_name": "PasteCommand",
+      "co_qualname": "PasteCommand",
+      "co_filename": "csv_commands.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "redo",
+        "undo",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c0072015300720253017203530272045500340153031a006a08720553041a00720653051a0072075306720855003d0172092400"
+      },
+      "co_stacksize": 2,
+      "co_firstlineno": 93,
+      "co_linetable": {
+        "bytes": "f88600d9043af502050523f20e050534f70e050534f000050534"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "PasteCommand",
+        93,
+        "粘贴数据块（记录旧值以支持撤销）",
+        {
+          "co_name": "__init__",
+          "co_qualname": "PasteCommand.__init__",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 6,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 6,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "model",
+            "sr",
+            "sc",
+            "old_block",
+            "new_block"
+          ],
+          "co_varnames": [
+            "self",
+            "model",
+            "start_row",
+            "start_col",
+            "old_block",
+            "new_block"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540655005d05000053013501000000000000200058106c0200000000000000005823730255006c03000000000000000055006c04000000000000000058406c05000000000000000058506c0600000000000000006700"
+          },
+          "co_stacksize": 3,
+          "co_firstlineno": 95,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d108189817d40821d8151a8c0ad81b24d0081888048c0790149417d819228c0ed819228d0e"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            "Paste"
+          ]
+        },
+        {
+          "co_name": "redo",
+          "co_qualname": "PasteCommand.redo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 7,
+          "co_flags": 3,
+          "co_names": [
+            "enumerate",
+            "new_block",
+            "sr",
+            "sc",
+            "model",
+            "rowCount",
+            "columnCount",
+            "_set_data"
+          ],
+          "co_varnames": [
+            "self",
+            "i",
+            "row",
+            "j",
+            "val",
+            "r",
+            "c"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005b0100000000000000005500520200000000000000000000000000000000000035010000000000001300489000007502000070125b010000000000000000550235010000000000001300487c00007502000070345500520400000000000000000000000000000000000055012d0000005500520600000000000000000000000000000000000055032d000000706558505208000000000000000000000000000000000000520b00000000000000000000000000000000000035000000000000003a120000640200004d41000058605208000000000000000000000000000000000000520d00000000000000000000000000000000000035000000000000003a120000640200004d60000055005208000000000000000000000000000000000000520f00000000000000000000000000000000000058565504350300000000000020004d7e00000b0020004d9200000b0020006700"
+          },
+          "co_stacksize": 7,
+          "co_firstlineno": 102,
+          "co_linetable": {
+            "bytes": "8000dc161fa004a70ea10ed6162f89468841dc1a23a0439e2e91069001d8171b97779177a011917ba044a747a147a861a14b9031d81314977a917ad7172ad1172ad3172cd5132cb011b75ab15ad7354bd1354bd3354dd5314dd81418974a914ad71428d11428a811a873d61433f307001b29f203001730"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        {
+          "co_name": "undo",
+          "co_qualname": "PasteCommand.undo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 7,
+          "co_flags": 3,
+          "co_names": [
+            "enumerate",
+            "old_block",
+            "sr",
+            "sc",
+            "model",
+            "rowCount",
+            "columnCount",
+            "_set_data"
+          ],
+          "co_varnames": [
+            "self",
+            "i",
+            "row",
+            "j",
+            "val",
+            "r",
+            "c"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "95005b0100000000000000005500520200000000000000000000000000000000000035010000000000001300489000007502000070125b010000000000000000550235010000000000001300487c00007502000070345500520400000000000000000000000000000000000055012d0000005500520600000000000000000000000000000000000055032d000000706558505208000000000000000000000000000000000000520b00000000000000000000000000000000000035000000000000003a120000640200004d41000058605208000000000000000000000000000000000000520d00000000000000000000000000000000000035000000000000003a120000640200004d60000055005208000000000000000000000000000000000000520f00000000000000000000000000000000000058565504350300000000000020004d7e00000b0020004d9200000b0020006700"
+          },
+          "co_stacksize": 7,
+          "co_firstlineno": 109,
+          "co_linetable": {
+            "bytes": "8000dc161fa004a70ea10ed6162f89468841dc1a23a0439e2e91069001d8171b97779177a011917ba044a747a147a861a14b9031d81314977a917ad7172ad1172ad3172cd5132cb011b75ab15ad7354bd1354bd3354dd5314dd81418974a914ad71428d11428a811a873d61433f307001b29f203001730"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        [
+          "model",
+          "new_block",
+          "old_block",
+          "sc",
+          "sr"
+        ]
+      ]
+    },
+    "PasteCommand",
+    {
+      "co_name": "ClearSelectionCommand",
+      "co_qualname": "ClearSelectionCommand",
+      "co_filename": "csv_commands.py",
+      "co_argcount": 0,
+      "co_posonlyargcount": 0,
+      "co_kwonlyargcount": 0,
+      "co_nlocals": 0,
+      "co_flags": 0,
+      "co_names": [
+        "__name__",
+        "__module__",
+        "__qualname__",
+        "__firstlineno__",
+        "__doc__",
+        "__init__",
+        "redo",
+        "undo",
+        "__static_attributes__",
+        "__classcell__"
+      ],
+      "co_varnames": [],
+      "co_freevars": [],
+      "co_cellvars": [
+        "__class__"
+      ],
+      "co_code": {
+        "bytes": "5e0095005c0072015300720253017203530272045500340153031a006a08720553041a00720653051a0072075306720855003d0172092400"
+      },
+      "co_stacksize": 2,
+      "co_firstlineno": 117,
+      "co_linetable": {
+        "bytes": "f88600d9043df50203051bf20a02052bf70802052af00002052a"
+      },
+      "co_exceptiontable": {
+        "bytes": ""
+      },
+      "co_consts": [
+        "ClearSelectionCommand",
+        117,
+        "清空选中区域（记录旧值以支持撤销）",
+        {
+          "co_name": "__init__",
+          "co_qualname": "ClearSelectionCommand.__init__",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 3,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 3,
+          "co_flags": 3,
+          "co_names": [
+            "super",
+            "__init__",
+            "model",
+            "cells"
+          ],
+          "co_varnames": [
+            "self",
+            "model",
+            "cells"
+          ],
+          "co_freevars": [
+            "__class__"
+          ],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "3e0195005b000000000000000000540355005d05000053013501000000000000200058106c02000000000000000058206c0300000000000000006700"
+          },
+          "co_stacksize": 3,
+          "co_firstlineno": 119,
+          "co_linetable": {
+            "bytes": "f88000dc080d8907d10818d0192ad4082bd8151a8c0ad8151a8d0a"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            "Clear selection"
+          ]
+        },
+        {
+          "co_name": "redo",
+          "co_qualname": "ClearSelectionCommand.redo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "cells",
+            "model",
+            "_set_data"
+          ],
+          "co_varnames": [
+            "self",
+            "r",
+            "c",
+            "_"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052000000000000000000000000000000000000001300482200007503000070126e0355005202000000000000000000000000000000000000520500000000000000000000000000000000000058125301350300000000000020004d2400000b0020006700"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 124,
+          "co_linetable": {
+            "bytes": "8000d8171b977a947a894788419021d80c108f4a894ad70c20d10c20a011a072d60c2af203001822"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null,
+            ""
+          ]
+        },
+        {
+          "co_name": "undo",
+          "co_qualname": "ClearSelectionCommand.undo",
+          "co_filename": "csv_commands.py",
+          "co_argcount": 1,
+          "co_posonlyargcount": 0,
+          "co_kwonlyargcount": 0,
+          "co_nlocals": 4,
+          "co_flags": 3,
+          "co_names": [
+            "cells",
+            "model",
+            "_set_data"
+          ],
+          "co_varnames": [
+            "self",
+            "r",
+            "c",
+            "v"
+          ],
+          "co_freevars": [],
+          "co_cellvars": [],
+          "co_code": {
+            "bytes": "9500550052000000000000000000000000000000000000001300482200007503000070126e0355005202000000000000000000000000000000000000520500000000000000000000000000000000000058125503350300000000000020004d2400000b0020006700"
+          },
+          "co_stacksize": 6,
+          "co_firstlineno": 128,
+          "co_linetable": {
+            "bytes": "8000d8171b977a947a894788419021d80c108f4a894ad70c20d10c20a011a071d60c29f203001822"
+          },
+          "co_exceptiontable": {
+            "bytes": ""
+          },
+          "co_consts": [
+            null
+          ]
+        },
+        [
+          "cells",
+          "model"
+        ]
+      ]
+    },
+    "ClearSelectionCommand",
+    null
+  ]
+}

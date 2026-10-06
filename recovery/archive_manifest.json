@@ -1,0 +1,1568 @@
+{
+  "executable": "D:\\toolproduct\\Meng_CSVEditor-main\\Meng_CSVEditor.exe",
+  "sha256": "10a366bd2d16614e3dab28b5632bdbaa4239d28c5d71742c5a8608c2b7eae933",
+  "size": 54791570,
+  "cookie_offset": 54791482,
+  "archive_start": 345600,
+  "python_version": 313,
+  "python_library": "python313.dll",
+  "entries": [
+    {
+      "name": "struct",
+      "typecode": "m",
+      "offset": 0,
+      "compressed_size": 235,
+      "size": 289,
+      "compressed": true
+    },
+    {
+      "name": "pyimod01_archive",
+      "typecode": "m",
+      "offset": 235,
+      "compressed_size": 2831,
+      "size": 4914,
+      "compressed": true
+    },
+    {
+      "name": "pyimod02_importers",
+      "typecode": "m",
+      "offset": 3066,
+      "compressed_size": 13630,
+      "size": 31786,
+      "compressed": true
+    },
+    {
+      "name": "pyimod03_ctypes",
+      "typecode": "m",
+      "offset": 16696,
+      "compressed_size": 2815,
+      "size": 6434,
+      "compressed": true
+    },
+    {
+      "name": "pyimod04_pywin32",
+      "typecode": "m",
+      "offset": 19511,
+      "compressed_size": 934,
+      "size": 1663,
+      "compressed": true
+    },
+    {
+      "name": "pyiboot01_bootstrap",
+      "typecode": "s",
+      "offset": 20445,
+      "compressed_size": 1142,
+      "size": 2020,
+      "compressed": true
+    },
+    {
+      "name": "pyi_rth_inspect",
+      "typecode": "s",
+      "offset": 21587,
+      "compressed_size": 1470,
+      "size": 2779,
+      "compressed": true
+    },
+    {
+      "name": "pyi_rth_pyqt5",
+      "typecode": "s",
+      "offset": 23057,
+      "compressed_size": 1022,
+      "size": 1998,
+      "compressed": true
+    },
+    {
+      "name": "pyi_rth_pkgutil",
+      "typecode": "s",
+      "offset": 24079,
+      "compressed_size": 951,
+      "size": 1543,
+      "compressed": true
+    },
+    {
+      "name": "csv_editor",
+      "typecode": "s",
+      "offset": 25030,
+      "compressed_size": 24519,
+      "size": 67294,
+      "compressed": true,
+      "sha256": "ffd1e89278435abcacae9999f7b04a0ef3a8c79d04919508aa24114b3bcbfb86"
+    },
+    {
+      "name": "LIBBZ2.dll",
+      "typecode": "b",
+      "offset": 49549,
+      "compressed_size": 42311,
+      "size": 83216,
+      "compressed": true
+    },
+    {
+      "name": "MSVCP140.dll",
+      "typecode": "b",
+      "offset": 91860,
+      "compressed_size": 183881,
+      "size": 557648,
+      "compressed": true
+    },
+    {
+      "name": "MSVCP140_1.dll",
+      "typecode": "b",
+      "offset": 275741,
+      "compressed_size": 18219,
+      "size": 35952,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\generic\\qtuiotouchplugin.dll",
+      "typecode": "b",
+      "offset": 293960,
+      "compressed_size": 35548,
+      "size": 74568,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\iconengines\\qsvgicon.dll",
+      "typecode": "b",
+      "offset": 329508,
+      "compressed_size": 24198,
+      "size": 47432,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qgif.dll",
+      "typecode": "b",
+      "offset": 353706,
+      "compressed_size": 23999,
+      "size": 44360,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qicns.dll",
+      "typecode": "b",
+      "offset": 377705,
+      "compressed_size": 25899,
+      "size": 49992,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qico.dll",
+      "typecode": "b",
+      "offset": 403604,
+      "compressed_size": 22756,
+      "size": 43336,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qjpeg.dll",
+      "typecode": "b",
+      "offset": 426360,
+      "compressed_size": 26986,
+      "size": 52552,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qpdf.dll",
+      "typecode": "b",
+      "offset": 453346,
+      "compressed_size": 11168,
+      "size": 26112,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qsvg.dll",
+      "typecode": "b",
+      "offset": 464514,
+      "compressed_size": 19664,
+      "size": 37192,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qtga.dll",
+      "typecode": "b",
+      "offset": 484178,
+      "compressed_size": 19276,
+      "size": 36680,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qtiff.dll",
+      "typecode": "b",
+      "offset": 503454,
+      "compressed_size": 140157,
+      "size": 396104,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qwbmp.dll",
+      "typecode": "b",
+      "offset": 643611,
+      "compressed_size": 18714,
+      "size": 35144,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\imageformats\\qwebp.dll",
+      "typecode": "b",
+      "offset": 662325,
+      "compressed_size": 247292,
+      "size": 514376,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll",
+      "typecode": "b",
+      "offset": 909617,
+      "compressed_size": 24256,
+      "size": 49992,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\platforms\\qdirect2d.dll",
+      "typecode": "b",
+      "offset": 933873,
+      "compressed_size": 704857,
+      "size": 1443144,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\platforms\\qminimal.dll",
+      "typecode": "b",
+      "offset": 1638730,
+      "compressed_size": 405865,
+      "size": 765768,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\platforms\\qoffscreen.dll",
+      "typecode": "b",
+      "offset": 2044595,
+      "compressed_size": 360835,
+      "size": 675656,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\platforms\\qwebgl.dll",
+      "typecode": "b",
+      "offset": 2405430,
+      "compressed_size": 193563,
+      "size": 488776,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\platforms\\qwindows.dll",
+      "typecode": "b",
+      "offset": 2598993,
+      "compressed_size": 677467,
+      "size": 1380168,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\platformthemes\\qxdgdesktopportal.dll",
+      "typecode": "b",
+      "offset": 3276460,
+      "compressed_size": 34376,
+      "size": 74568,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\plugins\\styles\\qwindowsvistastyle.dll",
+      "typecode": "b",
+      "offset": 3310836,
+      "compressed_size": 72143,
+      "size": 149832,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_ar.qm",
+      "typecode": "b",
+      "offset": 3382979,
+      "compressed_size": 110,
+      "size": 130,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_bg.qm",
+      "typecode": "b",
+      "offset": 3383089,
+      "compressed_size": 119,
+      "size": 153,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_ca.qm",
+      "typecode": "b",
+      "offset": 3383208,
+      "compressed_size": 119,
+      "size": 153,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_cs.qm",
+      "typecode": "b",
+      "offset": 3383327,
+      "compressed_size": 124,
+      "size": 157,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_da.qm",
+      "typecode": "b",
+      "offset": 3383451,
+      "compressed_size": 121,
+      "size": 153,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_de.qm",
+      "typecode": "b",
+      "offset": 3383572,
+      "compressed_size": 120,
+      "size": 153,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_en.qm",
+      "typecode": "b",
+      "offset": 3383692,
+      "compressed_size": 25,
+      "size": 16,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_es.qm",
+      "typecode": "b",
+      "offset": 3383717,
+      "compressed_size": 118,
+      "size": 153,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_fa.qm",
+      "typecode": "b",
+      "offset": 3383835,
+      "compressed_size": 77186,
+      "size": 293121,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_fi.qm",
+      "typecode": "b",
+      "offset": 3461021,
+      "compressed_size": 97,
+      "size": 117,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_fr.qm",
+      "typecode": "b",
+      "offset": 3461118,
+      "compressed_size": 119,
+      "size": 153,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_gd.qm",
+      "typecode": "b",
+      "offset": 3461237,
+      "compressed_size": 76,
+      "size": 70,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_gl.qm",
+      "typecode": "b",
+      "offset": 3461313,
+      "compressed_size": 78978,
+      "size": 323590,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_he.qm",
+      "typecode": "b",
+      "offset": 3540291,
+      "compressed_size": 78,
+      "size": 83,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_ar.qm",
+      "typecode": "b",
+      "offset": 3540369,
+      "compressed_size": 2804,
+      "size": 8743,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_bg.qm",
+      "typecode": "b",
+      "offset": 3543173,
+      "compressed_size": 3125,
+      "size": 10599,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_ca.qm",
+      "typecode": "b",
+      "offset": 3546298,
+      "compressed_size": 2224,
+      "size": 7444,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_cs.qm",
+      "typecode": "b",
+      "offset": 3548522,
+      "compressed_size": 3810,
+      "size": 15297,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_da.qm",
+      "typecode": "b",
+      "offset": 3552332,
+      "compressed_size": 1524,
+      "size": 4795,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_de.qm",
+      "typecode": "b",
+      "offset": 3553856,
+      "compressed_size": 2311,
+      "size": 7570,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_en.qm",
+      "typecode": "b",
+      "offset": 3556167,
+      "compressed_size": 25,
+      "size": 16,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_es.qm",
+      "typecode": "b",
+      "offset": 3556192,
+      "compressed_size": 3103,
+      "size": 10704,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_fr.qm",
+      "typecode": "b",
+      "offset": 3559295,
+      "compressed_size": 3090,
+      "size": 10922,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_gl.qm",
+      "typecode": "b",
+      "offset": 3562385,
+      "compressed_size": 3187,
+      "size": 10891,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_hu.qm",
+      "typecode": "b",
+      "offset": 3565572,
+      "compressed_size": 3114,
+      "size": 10284,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_it.qm",
+      "typecode": "b",
+      "offset": 3568686,
+      "compressed_size": 3050,
+      "size": 10612,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_ja.qm",
+      "typecode": "b",
+      "offset": 3571736,
+      "compressed_size": 2760,
+      "size": 7917,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_ko.qm",
+      "typecode": "b",
+      "offset": 3574496,
+      "compressed_size": 2034,
+      "size": 5708,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_pl.qm",
+      "typecode": "b",
+      "offset": 3576530,
+      "compressed_size": 2882,
+      "size": 9673,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_ru.qm",
+      "typecode": "b",
+      "offset": 3579412,
+      "compressed_size": 2282,
+      "size": 7288,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_sk.qm",
+      "typecode": "b",
+      "offset": 3581694,
+      "compressed_size": 3260,
+      "size": 10388,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_sl.qm",
+      "typecode": "b",
+      "offset": 3584954,
+      "compressed_size": 3181,
+      "size": 10363,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_tr.qm",
+      "typecode": "b",
+      "offset": 3588135,
+      "compressed_size": 1564,
+      "size": 4629,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_uk.qm",
+      "typecode": "b",
+      "offset": 3589699,
+      "compressed_size": 3108,
+      "size": 9750,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_zh_CN.qm",
+      "typecode": "b",
+      "offset": 3592807,
+      "compressed_size": 2531,
+      "size": 6441,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_help_zh_TW.qm",
+      "typecode": "b",
+      "offset": 3595338,
+      "compressed_size": 3150,
+      "size": 9301,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_hu.qm",
+      "typecode": "b",
+      "offset": 3598488,
+      "compressed_size": 114,
+      "size": 146,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_it.qm",
+      "typecode": "b",
+      "offset": 3598602,
+      "compressed_size": 119,
+      "size": 153,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_ja.qm",
+      "typecode": "b",
+      "offset": 3598721,
+      "compressed_size": 115,
+      "size": 146,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_ko.qm",
+      "typecode": "b",
+      "offset": 3598836,
+      "compressed_size": 115,
+      "size": 146,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_lt.qm",
+      "typecode": "b",
+      "offset": 3598951,
+      "compressed_size": 46643,
+      "size": 165383,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_lv.qm",
+      "typecode": "b",
+      "offset": 3645594,
+      "compressed_size": 86,
+      "size": 89,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_pl.qm",
+      "typecode": "b",
+      "offset": 3645680,
+      "compressed_size": 128,
+      "size": 161,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_pt.qm",
+      "typecode": "b",
+      "offset": 3645808,
+      "compressed_size": 18980,
+      "size": 70334,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_ru.qm",
+      "typecode": "b",
+      "offset": 3664788,
+      "compressed_size": 130,
+      "size": 164,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_sk.qm",
+      "typecode": "b",
+      "offset": 3664918,
+      "compressed_size": 124,
+      "size": 157,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_sl.qm",
+      "typecode": "b",
+      "offset": 3665042,
+      "compressed_size": 61702,
+      "size": 228428,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_sv.qm",
+      "typecode": "b",
+      "offset": 3726744,
+      "compressed_size": 18206,
+      "size": 65851,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_tr.qm",
+      "typecode": "b",
+      "offset": 3744950,
+      "compressed_size": 91,
+      "size": 110,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_uk.qm",
+      "typecode": "b",
+      "offset": 3745041,
+      "compressed_size": 131,
+      "size": 164,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_zh_CN.qm",
+      "typecode": "b",
+      "offset": 3745172,
+      "compressed_size": 40216,
+      "size": 117347,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qt_zh_TW.qm",
+      "typecode": "b",
+      "offset": 3785388,
+      "compressed_size": 107,
+      "size": 141,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_ar.qm",
+      "typecode": "b",
+      "offset": 3785495,
+      "compressed_size": 48163,
+      "size": 160017,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_bg.qm",
+      "typecode": "b",
+      "offset": 3833658,
+      "compressed_size": 47497,
+      "size": 165337,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_ca.qm",
+      "typecode": "b",
+      "offset": 3881155,
+      "compressed_size": 57942,
+      "size": 210159,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_cs.qm",
+      "typecode": "b",
+      "offset": 3939097,
+      "compressed_size": 50353,
+      "size": 174701,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_da.qm",
+      "typecode": "b",
+      "offset": 3989450,
+      "compressed_size": 51815,
+      "size": 181387,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_de.qm",
+      "typecode": "b",
+      "offset": 4041265,
+      "compressed_size": 59624,
+      "size": 220467,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_en.qm",
+      "typecode": "b",
+      "offset": 4100889,
+      "compressed_size": 25,
+      "size": 16,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_es.qm",
+      "typecode": "b",
+      "offset": 4100914,
+      "compressed_size": 46937,
+      "size": 165170,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_fi.qm",
+      "typecode": "b",
+      "offset": 4147851,
+      "compressed_size": 50753,
+      "size": 179941,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_fr.qm",
+      "typecode": "b",
+      "offset": 4198604,
+      "compressed_size": 46368,
+      "size": 166167,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_gd.qm",
+      "typecode": "b",
+      "offset": 4244972,
+      "compressed_size": 50693,
+      "size": 189580,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_he.qm",
+      "typecode": "b",
+      "offset": 4295665,
+      "compressed_size": 42852,
+      "size": 138690,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_hu.qm",
+      "typecode": "b",
+      "offset": 4338517,
+      "compressed_size": 46650,
+      "size": 160494,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_it.qm",
+      "typecode": "b",
+      "offset": 4385167,
+      "compressed_size": 45046,
+      "size": 161172,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_ja.qm",
+      "typecode": "b",
+      "offset": 4430213,
+      "compressed_size": 43169,
+      "size": 129911,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_ko.qm",
+      "typecode": "b",
+      "offset": 4473382,
+      "compressed_size": 52269,
+      "size": 156799,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_lv.qm",
+      "typecode": "b",
+      "offset": 4525651,
+      "compressed_size": 44974,
+      "size": 153608,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_pl.qm",
+      "typecode": "b",
+      "offset": 4570625,
+      "compressed_size": 46899,
+      "size": 162982,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_ru.qm",
+      "typecode": "b",
+      "offset": 4617524,
+      "compressed_size": 58556,
+      "size": 203767,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_sk.qm",
+      "typecode": "b",
+      "offset": 4676080,
+      "compressed_size": 37339,
+      "size": 125763,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_tr.qm",
+      "typecode": "b",
+      "offset": 4713419,
+      "compressed_size": 56449,
+      "size": 194487,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_uk.qm",
+      "typecode": "b",
+      "offset": 4769868,
+      "compressed_size": 46633,
+      "size": 158274,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\Qt5\\translations\\qtbase_zh_TW.qm",
+      "typecode": "b",
+      "offset": 4816501,
+      "compressed_size": 45464,
+      "size": 127849,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\QtCore.pyd",
+      "typecode": "b",
+      "offset": 4861965,
+      "compressed_size": 723686,
+      "size": 2487624,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\QtGui.pyd",
+      "typecode": "b",
+      "offset": 5585651,
+      "compressed_size": 694929,
+      "size": 2505032,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\QtWidgets.pyd",
+      "typecode": "b",
+      "offset": 6280580,
+      "compressed_size": 1259113,
+      "size": 5089608,
+      "compressed": true
+    },
+    {
+      "name": "PyQt5\\sip.cp313-win_amd64.pyd",
+      "typecode": "b",
+      "offset": 7539693,
+      "compressed_size": 63999,
+      "size": 132424,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Core_conda.dll",
+      "typecode": "b",
+      "offset": 7603692,
+      "compressed_size": 2288531,
+      "size": 5465416,
+      "compressed": true
+    },
+    {
+      "name": "Qt5DBus_conda.dll",
+      "typecode": "b",
+      "offset": 9892223,
+      "compressed_size": 193647,
+      "size": 445256,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Gui_conda.dll",
+      "typecode": "b",
+      "offset": 10085870,
+      "compressed_size": 2457959,
+      "size": 6673224,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Network_conda.dll",
+      "typecode": "b",
+      "offset": 12543829,
+      "compressed_size": 564972,
+      "size": 1312072,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Pdf_conda.dll",
+      "typecode": "b",
+      "offset": 13108801,
+      "compressed_size": 2464289,
+      "size": 4603904,
+      "compressed": true
+    },
+    {
+      "name": "Qt5QmlModels_conda.dll",
+      "typecode": "b",
+      "offset": 15573090,
+      "compressed_size": 195028,
+      "size": 447816,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Qml_conda.dll",
+      "typecode": "b",
+      "offset": 15768118,
+      "compressed_size": 1399229,
+      "size": 3615048,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Quick_conda.dll",
+      "typecode": "b",
+      "offset": 17167347,
+      "compressed_size": 1633224,
+      "size": 4172104,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Svg_conda.dll",
+      "typecode": "b",
+      "offset": 18800571,
+      "compressed_size": 140400,
+      "size": 338248,
+      "compressed": true
+    },
+    {
+      "name": "Qt5VirtualKeyboard_conda.dll",
+      "typecode": "b",
+      "offset": 18940971,
+      "compressed_size": 478158,
+      "size": 780104,
+      "compressed": true
+    },
+    {
+      "name": "Qt5WebSockets_conda.dll",
+      "typecode": "b",
+      "offset": 19419129,
+      "compressed_size": 65193,
+      "size": 155464,
+      "compressed": true
+    },
+    {
+      "name": "Qt5Widgets_conda.dll",
+      "typecode": "b",
+      "offset": 19484322,
+      "compressed_size": 2507686,
+      "size": 5541704,
+      "compressed": true
+    },
+    {
+      "name": "VCRUNTIME140.dll",
+      "typecode": "b",
+      "offset": 21992008,
+      "compressed_size": 60469,
+      "size": 124496,
+      "compressed": true
+    },
+    {
+      "name": "VCRUNTIME140_1.dll",
+      "typecode": "b",
+      "offset": 22052477,
+      "compressed_size": 26470,
+      "size": 49744,
+      "compressed": true
+    },
+    {
+      "name": "_bz2.pyd",
+      "typecode": "b",
+      "offset": 22078947,
+      "compressed_size": 19669,
+      "size": 36168,
+      "compressed": true
+    },
+    {
+      "name": "_decimal.pyd",
+      "typecode": "b",
+      "offset": 22098616,
+      "compressed_size": 57862,
+      "size": 158024,
+      "compressed": true
+    },
+    {
+      "name": "_hashlib.pyd",
+      "typecode": "b",
+      "offset": 22156478,
+      "compressed_size": 28488,
+      "size": 64328,
+      "compressed": true
+    },
+    {
+      "name": "_lzma.pyd",
+      "typecode": "b",
+      "offset": 22184966,
+      "compressed_size": 25270,
+      "size": 48968,
+      "compressed": true
+    },
+    {
+      "name": "_socket.pyd",
+      "typecode": "b",
+      "offset": 22210236,
+      "compressed_size": 40547,
+      "size": 85832,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-console-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22250783,
+      "compressed_size": 7622,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-datetime-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22258405,
+      "compressed_size": 7450,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-debug-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22265855,
+      "compressed_size": 7463,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-errorhandling-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22273318,
+      "compressed_size": 7507,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-fibers-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22280825,
+      "compressed_size": 7461,
+      "size": 21992,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-file-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22288286,
+      "compressed_size": 8595,
+      "size": 26088,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-file-l1-2-0.dll",
+      "typecode": "b",
+      "offset": 22296881,
+      "compressed_size": 7471,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-file-l2-1-0.dll",
+      "typecode": "b",
+      "offset": 22304352,
+      "compressed_size": 7601,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-handle-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22311953,
+      "compressed_size": 7485,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-heap-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22319438,
+      "compressed_size": 7645,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-interlocked-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22327083,
+      "compressed_size": 7507,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-libraryloader-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22334590,
+      "compressed_size": 7812,
+      "size": 22008,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-localization-l1-2-0.dll",
+      "typecode": "b",
+      "offset": 22342402,
+      "compressed_size": 8351,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-memory-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22350753,
+      "compressed_size": 7639,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-namedpipe-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22358392,
+      "compressed_size": 7583,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-processenvironment-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22365975,
+      "compressed_size": 7731,
+      "size": 22008,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-processthreads-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22373706,
+      "compressed_size": 8225,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-processthreads-l1-1-1.dll",
+      "typecode": "b",
+      "offset": 22381931,
+      "compressed_size": 7675,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-profile-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22389606,
+      "compressed_size": 7449,
+      "size": 21992,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22397055,
+      "compressed_size": 7684,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-string-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22404739,
+      "compressed_size": 7526,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-synch-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22412265,
+      "compressed_size": 8049,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-synch-l1-2-0.dll",
+      "typecode": "b",
+      "offset": 22420314,
+      "compressed_size": 7709,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-sysinfo-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22428023,
+      "compressed_size": 7770,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-timezone-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22435793,
+      "compressed_size": 7628,
+      "size": 21976,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-core-util-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22443421,
+      "compressed_size": 7471,
+      "size": 21992,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-conio-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22450892,
+      "compressed_size": 7801,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-convert-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22458693,
+      "compressed_size": 8886,
+      "size": 26080,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-environment-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22467579,
+      "compressed_size": 7637,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22475216,
+      "compressed_size": 8260,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-heap-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22483476,
+      "compressed_size": 7777,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-locale-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22491253,
+      "compressed_size": 7756,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-math-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22499009,
+      "compressed_size": 10767,
+      "size": 30184,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-process-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22509776,
+      "compressed_size": 7831,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22517607,
+      "compressed_size": 9062,
+      "size": 26104,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22526669,
+      "compressed_size": 9495,
+      "size": 26080,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-string-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22536164,
+      "compressed_size": 9660,
+      "size": 26072,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-time-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22545824,
+      "compressed_size": 8343,
+      "size": 21984,
+      "compressed": true
+    },
+    {
+      "name": "api-ms-win-crt-utility-l1-1-0.dll",
+      "typecode": "b",
+      "offset": 22554167,
+      "compressed_size": 7785,
+      "size": 22000,
+      "compressed": true
+    },
+    {
+      "name": "base_library.zip",
+      "typecode": "b",
+      "offset": 22561952,
+      "compressed_size": 421037,
+      "size": 1403000,
+      "compressed": true
+    },
+    {
+      "name": "icudt73.dll",
+      "typecode": "b",
+      "offset": 22982989,
+      "compressed_size": 12316102,
+      "size": 32001536,
+      "compressed": true
+    },
+    {
+      "name": "icuin73.dll",
+      "typecode": "b",
+      "offset": 35299091,
+      "compressed_size": 1263287,
+      "size": 3944960,
+      "compressed": true
+    },
+    {
+      "name": "icuuc73.dll",
+      "typecode": "b",
+      "offset": 36562378,
+      "compressed_size": 932825,
+      "size": 2744832,
+      "compressed": true
+    },
+    {
+      "name": "libEGL.dll",
+      "typecode": "b",
+      "offset": 37495203,
+      "compressed_size": 15288,
+      "size": 30024,
+      "compressed": true
+    },
+    {
+      "name": "libGLESv2.dll",
+      "typecode": "b",
+      "offset": 37510491,
+      "compressed_size": 1282020,
+      "size": 3383112,
+      "compressed": true
+    },
+    {
+      "name": "libcrypto-3-x64.dll",
+      "typecode": "b",
+      "offset": 38792511,
+      "compressed_size": 1891329,
+      "size": 5297992,
+      "compressed": true
+    },
+    {
+      "name": "libjpeg.dll",
+      "typecode": "b",
+      "offset": 40683840,
+      "compressed_size": 133997,
+      "size": 285512,
+      "compressed": true
+    },
+    {
+      "name": "liblzma.dll",
+      "typecode": "b",
+      "offset": 40817837,
+      "compressed_size": 105976,
+      "size": 198416,
+      "compressed": true
+    },
+    {
+      "name": "libmpdec-4.dll",
+      "typecode": "b",
+      "offset": 40923813,
+      "compressed_size": 99590,
+      "size": 213264,
+      "compressed": true
+    },
+    {
+      "name": "libpng16.dll",
+      "typecode": "b",
+      "offset": 41023403,
+      "compressed_size": 109348,
+      "size": 206664,
+      "compressed": true
+    },
+    {
+      "name": "libssl-3-x64.dll",
+      "typecode": "b",
+      "offset": 41132751,
+      "compressed_size": 282785,
+      "size": 789320,
+      "compressed": true
+    },
+    {
+      "name": "opengl32sw.dll",
+      "typecode": "b",
+      "offset": 41415536,
+      "compressed_size": 7763398,
+      "size": 20923392,
+      "compressed": true
+    },
+    {
+      "name": "python3.dll",
+      "typecode": "b",
+      "offset": 49178934,
+      "compressed_size": 23643,
+      "size": 70472,
+      "compressed": true
+    },
+    {
+      "name": "python313.dll",
+      "typecode": "b",
+      "offset": 49202577,
+      "compressed_size": 2655313,
+      "size": 7116616,
+      "compressed": true,
+      "sha256": "d97a98104f8bba00acc6d91c9b1db9ce0e917257da80ec923000f7e9be9d77f4"
+    },
+    {
+      "name": "select.pyd",
+      "typecode": "b",
+      "offset": 51857890,
+      "compressed_size": 17416,
+      "size": 30536,
+      "compressed": true
+    },
+    {
+      "name": "ucrtbase.dll",
+      "typecode": "b",
+      "offset": 51875306,
+      "compressed_size": 519380,
+      "size": 1123808,
+      "compressed": true
+    },
+    {
+      "name": "unicodedata.pyd",
+      "typecode": "b",
+      "offset": 52394686,
+      "compressed_size": 317819,
+      "size": 707400,
+      "compressed": true
+    },
+    {
+      "name": "zlib.dll",
+      "typecode": "b",
+      "offset": 52712505,
+      "compressed_size": 57786,
+      "size": 101192,
+      "compressed": true
+    },
+    {
+      "name": "zstd.dll",
+      "typecode": "b",
+      "offset": 52770291,
+      "compressed_size": 260180,
+      "size": 673608,
+      "compressed": true
+    },
+    {
+      "name": "pyi-contents-directory _internal",
+      "typecode": "o",
+      "offset": 53030471,
+      "compressed_size": 0,
+      "size": 0,
+      "compressed": false
+    },
+    {
+      "name": "PYZ.pyz",
+      "typecode": "z",
+      "offset": 53030471,
+      "compressed_size": 1404355,
+      "size": 1404355,
+      "compressed": false,
+      "sha256": "894b6143ad47d4230cbffdd5a1d5728a5d9479b07560f69f81fd914ab3abaade"
+    }
+  ],
+  "python_runtime_version_resources": {
+    "fixed_file_version": "3.13.9150.1013",
+    "FileVersion": "3.13.9",
+    "ProductVersion": "3.13.9"
+  },
+  "pyz_magic": "f30d0d0a",
+  "application_modules": {
+    "csv_model": {
+      "typecode": 0,
+      "size": 11964,
+      "sha256": "ae0f8a1204cff73062e2cda88c7f44ab28e93f73c125ce2887521ed8eb680cbb"
+    },
+    "csv_commands": {
+      "typecode": 0,
+      "size": 9269,
+      "sha256": "cf1ea93c423bff6b332fe4456d7cc85f3998f1884862d13f4cf0eac33a7cca4c"
+    }
+  }
+}

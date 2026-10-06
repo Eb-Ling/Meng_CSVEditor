@@ -1,0 +1,29 @@
+{
+  "comparison_runtime": "3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:09:13) [MSC v.1944 64 bit (AMD64)]",
+  "modules": {
+    "csv_editor": {
+      "source_sha256": "adb89bab065f6e7d4d7f2b16d1ba7d52206f08c62efa84fe7d8a6c25163c99a8",
+      "code_objects_equal": true,
+      "compared_code_object_count": 76,
+      "differences": [],
+      "shipped_firstlineno": 1,
+      "local_firstlineno": 1
+    },
+    "csv_model": {
+      "source_sha256": "370b62dc8ac89f72f421a51ae6457a2adbb9aab8f462272ed0fa31b114fdbd50",
+      "code_objects_equal": true,
+      "compared_code_object_count": 22,
+      "differences": [],
+      "shipped_firstlineno": 1,
+      "local_firstlineno": 1
+    },
+    "csv_commands": {
+      "source_sha256": "fb0b0ae8480165b4eec15f02ff42b8419f4292f60f6202f8c872ed5540031c7f",
+      "code_objects_equal": true,
+      "compared_code_object_count": 29,
+      "differences": [],
+      "shipped_firstlineno": 1,
+      "local_firstlineno": 1
+    }
+  }
+}
