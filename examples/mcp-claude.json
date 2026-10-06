@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "meng_csv_editor": {
+      "command": "D:/CSV工具/Meng_CSVEditor_MCP.exe",
+      "args": []
+    }
+  }
+}

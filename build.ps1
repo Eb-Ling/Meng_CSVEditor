@@ -38,7 +38,9 @@ try {
     }
     Write-Host "[3/3] Building Windows executable..."
     Invoke-Checked $projectPython @("-m", "PyInstaller", "--noconfirm", "Meng_CSVEditor.spec")
+    Invoke-Checked $projectPython @("package_portable.py")
     Write-Host "Build complete: $PSScriptRoot\dist\Meng_CSVEditor.exe"
+    Write-Host "MCP companion: $PSScriptRoot\dist\Meng_CSVEditor_MCP.exe"
     exit 0
 } catch {
     Write-Host "Build failed: $_" -ForegroundColor Red

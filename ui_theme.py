@@ -130,6 +130,10 @@ STYLESHEET = '''
 QMainWindow, QDialog { background: #f4f6fa; color: #17243b; }
 QWidget { color: #17243b; }
 QWidget#workspace { background: #f4f6fa; }
+QDockWidget#regionDock { background: #ffffff; border: 1px solid #e5ebf3; }
+QTreeWidget { background: #ffffff; alternate-background-color: #fafbfd; border: 1px solid #e5ebf3; border-radius: 5px; }
+QTreeWidget::item { padding: 5px; }
+QTreeWidget::item:selected { background: #e6efff; color: #17243b; }
 QFrame#documentHeader { background: transparent; border: none; }
 QFrame#tableCard { background: #ffffff; border: 1px solid #e5ebf3; border-radius: 10px; }
 QLabel { background: transparent; border: none; }

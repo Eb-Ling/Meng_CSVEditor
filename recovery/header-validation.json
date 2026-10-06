@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-07",
+  "full_suite_tests": 207,
+  "full_suite_passed": true,
+  "packaged_stdio_tests": 2,
+  "packaged_stdio_passed": true,
+  "gui_smoke_exit": 0,
+  "generic_agent_example": "102 cells, 30000 characters, complete Unicode text",
+  "embedded_source": {
+    "Meng_CSVEditor.exe/csv_editor": "matches current source",
+    "Meng_CSVEditor.exe/csv_model": "matches current source",
+    "Meng_CSVEditor.exe/csv_commands": "matches current source",
+    "Meng_CSVEditor.exe/csv_view": "matches current source",
+    "Meng_CSVEditor.exe/ui_theme": "matches current source",
+    "Meng_CSVEditor.exe/crash_reporter": "matches current source",
+    "Meng_CSVEditor.exe/region_panel": "matches current source",
+    "Meng_CSVEditor.exe/region_bridge": "matches current source",
+    "Meng_CSVEditor.exe/region_store": "matches current source",
+    "Meng_CSVEditor.exe/mcp_config": "matches current source",
+    "Meng_CSVEditor_MCP.exe/mcp_server": "matches current source",
+    "Meng_CSVEditor_MCP.exe/region_store": "matches current source"
+  },
+  "artifacts": {
+    "Meng_CSVEditor.exe": {
+      "size": 40037936,
+      "sha256": "3ad9cdca73c642a303f2ee861f77d147f97acd10bababc5c21a4276bde58f1cd"
+    },
+    "Meng_CSVEditor_MCP.exe": {
+      "size": 21510520,
+      "sha256": "4730aae04373dd2f9c421754fcf140b327c2ddf8f7397b9c2ffee90471642480"
+    }
+  },
+  "alignment_update": {
+    "date": "2026-10-07",
+    "heading_alignment": "left, vertically centered",
+    "visual_check_passed": true,
+    "gui_smoke_exit": 0,
+    "embedded_source_verified": true
+  }
+}

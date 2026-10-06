@@ -17,10 +17,10 @@ from PyQt5.QtWidgets import (
     QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton,
     QCheckBox, QAbstractItemView, QWidget, QStyledItemDelegate,
     QPlainTextEdit, QStyle, QDialogButtonBox, QFrame, QToolButton,
-    QSizePolicy, QStyleOptionViewItem
+    QSizePolicy, QStyleOptionViewItem, QInputDialog
 )
 from PyQt5.QtCore import (
-    Qt, QModelIndex, QPersistentModelIndex, QSettings, QSortFilterProxyModel,
+    Qt, QModelIndex, QPersistentModelIndex, QSettings,
     pyqtSignal, QRect, QTimer, QEvent, QSize
 )
 from PyQt5.QtGui import (
@@ -38,6 +38,10 @@ from ui_theme import (
     apply_theme, make_icon, SURFACE, TEXT, MUTED, GRID, ACCENT,
     SELECTION, ALTERNATE_ROW,
 )
+from region_bridge import RegionBridge
+from region_panel import RegionPanel
+from region_store import MAX_CELLS
+from csv_view import CsvViewProxy
 
 
 class ElidedLabel(QLabel):
@@ -171,7 +175,7 @@ class MultilineEditDelegate(QStyledItemDelegate):
         new_val = editor.toPlainText()
         if new_val == editor._initial_text:
             new_val = old_val
-        # Restore the visible row before editing a sort key can move the row.
+        # Restore the row height before committing the editor.
         self._collapse_row()
         if old_val != new_val:
             self.undo_stack.push(CellEditCommand(
@@ -412,7 +416,8 @@ class RowNumberHeaderView(QHeaderView):
         painter.save()
         painter.fillRect(rect, QColor('#f5f8fc'))
         painter.setPen(QColor(MUTED))
-        painter.drawText(rect, Qt.AlignCenter, str(logicalIndex + 1))
+        value = self.model().headerData(logicalIndex, Qt.Vertical, Qt.DisplayRole)
+        painter.drawText(rect, Qt.AlignCenter, str(value or ''))
         painter.setPen(QColor(GRID))
         painter.drawLine(rect.left(), rect.bottom(), rect.right(), rect.bottom())
         painter.drawLine(rect.right(), rect.top(), rect.right(), rect.bottom())
@@ -440,21 +445,24 @@ class CsvEditorWindow(QMainWindow):
         # 业务层 Model
         self.model = CsvTableModel(self)
 
-        # 排序代理
-        self.proxy = QSortFilterProxyModel(self)
+        # 首行显示为抬头；正文保持文件顺序，禁止排序。
+        self.proxy = CsvViewProxy(self)
         self.proxy.setSourceModel(self.model)
 
         # 表格视图
         self.table = QTableView()
         self.table.setModel(self.proxy)
-        self.table.setSortingEnabled(True)
-        self.table.sortByColumn(-1, Qt.AscendingOrder)
+        self.table.setSortingEnabled(False)
         self.table.setSelectionBehavior(QAbstractItemView.SelectItems)
         self.table.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.table.setAlternatingRowColors(True)
         self.table.horizontalHeader().setSectionsMovable(True)
         self.table.horizontalHeader().setSectionsClickable(True)
-        self.table.horizontalHeader().setSortIndicatorShown(True)
+        self.table.horizontalHeader().setDefaultAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        self.table.horizontalHeader().setSortIndicatorShown(False)
+        self.table.horizontalHeader().setContextMenuPolicy(Qt.CustomContextMenu)
+        self.table.horizontalHeader().customContextMenuRequested.connect(self._show_header_menu)
+        self.table.horizontalHeader().setToolTip('CSV 第一行作为抬头 · 右键编辑 · 正文按文件顺序显示')
         self.table.horizontalHeader().setStretchLastSection(True)
         self.table.verticalHeader().setVisible(False)
         self.table.setObjectName('csvTable')
@@ -491,6 +499,11 @@ class CsvEditorWindow(QMainWindow):
         self.status_bar.addWidget(self.lbl_position, 1)
         self.status_bar.addPermanentWidget(self.lbl_size)
         self.model.operationFailed.connect(self._on_operation_failed, Qt.QueuedConnection)
+
+        self.region_bridge = RegionBridge(self)
+        self.region_panel = RegionPanel(self, self.region_bridge)
+        self.addDockWidget(Qt.RightDockWidgetArea, self.region_panel)
+        self.region_panel.hide()
 
         self.table.selectionModel().currentChanged.connect(self._update_status)
         for signal in (self.model.rowsInserted, self.model.rowsRemoved,
@@ -700,7 +713,7 @@ class CsvEditorWindow(QMainWindow):
     def _new_file(self):
         if not self._confirm_discard():
             return
-        self.model.load_data([[''] * 5, [''] * 5])
+        self.model.load_data([[f'列{column + 1}' for column in range(5)], [''] * 5, [''] * 5])
         self._filepath = None
         self._csv_format = CsvFormat()
         self._encoding = self._csv_format.encoding
@@ -808,7 +821,7 @@ class CsvEditorWindow(QMainWindow):
         delimiter = self._csv_format.delimiter
         label = "TSV" if delimiter == '\t' else "CSV" if delimiter == ',' else f"分隔符 {delimiter!r}"
         bom_label = "BOM 开" if self._write_bom else "BOM 关"
-        self.lbl_size.setText(f"{r} 行 x {c} 列 | {self._encoding} | {label} | {bom_label}")
+        self.lbl_size.setText(f"{r} 行 x {c} 列（含抬头） | {self._encoding} | {label} | {bom_label}")
 
     def _show_save_settings(self):
         dialog = SaveSettingsDialog(self._write_bom, self)
@@ -852,12 +865,7 @@ class CsvEditorWindow(QMainWindow):
         self._apply_history(self.undo_stack.redo)
 
     def _apply_history(self, operation):
-        dynamic = self.proxy.dynamicSortFilter()
-        self.proxy.setDynamicSortFilter(False)
-        try:
-            operation()
-        finally:
-            self.proxy.setDynamicSortFilter(dynamic)
+        operation()
 
     def _on_clean_changed(self, clean):
         self._update_title()
@@ -923,8 +931,55 @@ class CsvEditorWindow(QMainWindow):
             self._load_file(path)
 
     # ────────── Context menu ──────────
+    def _show_header_menu(self, pos):
+        header = self.table.horizontalHeader()
+        column = header.logicalIndexAt(pos)
+        if not 0 <= column < self.model.columnCount():
+            return
+        menu = QMenu(self)
+        menu.addAction('编辑抬头（CSV 第一行）...', lambda: self._edit_header(column))
+        inspect = menu.addAction('查看此抬头详情 / 提交给 AI', lambda: self._show_header_details(column))
+        inspect.setEnabled(self.model.rowCount() > 0)
+        try:
+            menu.exec_(header.viewport().mapToGlobal(pos))
+        finally:
+            menu.deleteLater()
+
+    def _edit_header(self, column):
+        if not self.model._valid_number(column) or column >= self.model.columnCount():
+            return
+        self.delegate.commit_active_editor()
+        generation = self.model._document_generation
+        index = QPersistentModelIndex(self.model.index(0, column))
+        had_header = self.model.rowCount() > 0
+        old = str(index.data(Qt.EditRole) or '') if index.isValid() else ''
+        value, accepted = QInputDialog.getMultiLineText(
+            self, '编辑抬头', f'CSV 第 1 行 · 第 {column + 1} 列\n修改会保存到文件中，可撤销。', old)
+        if not accepted or value == old:
+            return
+        if (generation != self.model._document_generation or
+                (had_header and (not index.isValid() or index.row() != 0 or
+                                 str(index.data(Qt.EditRole) or '') != old)) or
+                (not had_header and (self.model.rowCount() != 0 or column >= self.model.columnCount()))):
+            QMessageBox.warning(self, '抬头已变化', '文件或抬头在编辑期间发生变化，请重新打开抬头编辑。')
+            return
+        if had_header:
+            self._push_command(CellEditCommand(self.model, 0, index.column(), old, value))
+        else:
+            self._push_command(PasteCellsCommand(self.model, [(0, column, '', value)],
+                                                1, self.model.columnCount()))
+
+    def _show_header_details(self, column):
+        self.delegate.commit_active_editor()
+        index = self.model.index(0, column)
+        if index.isValid():
+            self.region_panel.show_region([(index, 0, self.table.horizontalHeader().visualIndex(column))])
+
     def _show_context_menu(self, pos):
         menu = QMenu(self)
+        inspect = menu.addAction("查看区域详情 / 提交给 AI", self._show_region_details)
+        inspect.setEnabled(self.table.selectionModel().hasSelection())
+        menu.addSeparator()
         menu.addAction("插入行(上方)", self._insert_row_above)
         menu.addAction("插入行(下方)", self._insert_row_below)
         menu.addAction("删除行", self._delete_row)
@@ -942,6 +997,22 @@ class CsvEditorWindow(QMainWindow):
         finally:
             menu.deleteLater()
 
+    def _show_region_details(self):
+        count = 0
+        for selected_range in self.table.selectionModel().selection():
+            count += selected_range.width() * selected_range.height()
+            if count > MAX_CELLS:
+                self.status_bar.showMessage(f'一次最多查看 {MAX_CELLS} 个单元格，请缩小区域。', 8000)
+                return
+        header = self.table.horizontalHeader()
+        selected = sorted(self.table.selectionModel().selectedIndexes(),
+                          key=lambda index: (index.row(), header.visualIndex(index.column())))
+        # Keep actual CSV record numbers, including the header at record 1.
+        saved = [(QPersistentModelIndex(self.proxy.mapToSource(index)), index.row() + 1,
+                  header.visualIndex(index.column())) for index in selected]
+        self.delegate.commit_active_editor()
+        self.region_panel.show_region([(QModelIndex(index), row, col) for index, row, col in saved])
+
     # ────────── Row/Col operations (undo-aware) ──────────
     def _current_source_index(self):
         self.delegate.commit_active_editor()
@@ -952,12 +1023,18 @@ class CsvEditorWindow(QMainWindow):
 
     def _insert_row_above(self):
         src = self._current_source_index()
+        if not self.model.rowCount():
+            self._push_command(PasteCellsCommand(self.model, [], 2, max(1, self.model.columnCount())))
+            return
         row = src.row() if src.isValid() else self.model.rowCount()
         self.undo_stack.push(InsertRowsCommand(self.model, row))
         self._update_size_label()
 
     def _insert_row_below(self):
         src = self._current_source_index()
+        if not self.model.rowCount():
+            self._push_command(PasteCellsCommand(self.model, [], 2, max(1, self.model.columnCount())))
+            return
         row = (src.row() + 1) if src.isValid() else self.model.rowCount()
         self.undo_stack.push(InsertRowsCommand(self.model, row))
         self._update_size_label()
@@ -1057,14 +1134,8 @@ class CsvEditorWindow(QMainWindow):
         start_column = visible_columns.index(current.column()) if current.isValid() else 0
         original_rows = self.model.rowCount()
         original_cols = self.model.columnCount()
-        # Snapshot source identities before sort keys or dimensions change.
-        target_row_indices = []
-        for offset in range(len(block)):
-            visible_row = start_row + offset
-            if visible_row < original_rows and original_cols:
-                target_row_indices.append(self.proxy.mapToSource(self.proxy.index(visible_row, 0)).row())
-            else:
-                target_row_indices.append(visible_row)
+        # Record 1 is the header. Pasting into the body starts at record 2.
+        target_row_indices = [start_row + offset + 1 for offset in range(len(block))]
         target_cols = [visible_columns[position] if position < len(visible_columns)
                        else original_cols + position - len(visible_columns)
                        for position in range(start_column, start_column + width)]
@@ -1076,19 +1147,14 @@ class CsvEditorWindow(QMainWindow):
                 old = self.model.data(self.model.index(source_row, source_col), Qt.EditRole)
                 old = str(old or '') if source_row < original_rows and source_col < original_cols else ''
                 cells.append((source_row, source_col, old, value))
-        new_rows = max(original_rows, start_row + len(block))
+        new_rows = max(original_rows, start_row + len(block) + 1)
         new_cols = max(original_cols, start_column + width)
         if new_rows == original_rows and new_cols == original_cols and all(old == new for _, _, old, new in cells):
             return
         self._push_command(PasteCellsCommand(self.model, cells, new_rows, new_cols))
 
     def _push_command(self, command):
-        dynamic = self.proxy.dynamicSortFilter()
-        self.proxy.setDynamicSortFilter(False)
-        try:
-            self.undo_stack.push(command)
-        finally:
-            self.proxy.setDynamicSortFilter(dynamic)
+        self.undo_stack.push(command)
 
     def _delete_selection(self):
         self.delegate.commit_active_editor()
@@ -1169,7 +1235,8 @@ class CsvEditorWindow(QMainWindow):
         columns = ([current.column()] if col_only and current.isValid()
                    else self._visible_columns()[:1] if col_only else self._visible_columns())
         cells = []
-        for row in range(self.model.rowCount()):
+        # Body replace does not silently rename headings; edit those by right click.
+        for row in range(1, self.model.rowCount()):
             for column in columns:
                 index = self.model.index(row, column)
                 old = str(index.data(Qt.EditRole) or '')
@@ -1213,6 +1280,7 @@ class CsvEditorWindow(QMainWindow):
     # ────────── Close event ──────────
     def closeEvent(self, event):
         if self._confirm_discard():
+            self.region_bridge.shutdown()
             event.accept()
         else:
             event.ignore()

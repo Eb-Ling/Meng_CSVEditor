@@ -1,0 +1,13 @@
+test_discovery_resource_details_edit_conflict_and_undo_over_stdio (tests.test_mcp_protocol.MCPProtocolTests.test_discovery_resource_details_edit_conflict_and_undo_over_stdio) ... Tool 'apply_region_edits' failed: 'Error executing tool apply_region_edits: ����汾�ѱ仯�����ȡ������������޸ġ�'
+Tool 'apply_region_edits' failed: 'Error executing tool apply_region_edits: A3 �������Ѹı䣬�������ύ���򣬱��⸲���ֹ��޸ġ�'
+ok
+test_document_switch_and_invalid_schema_are_tool_errors (tests.test_mcp_protocol.MCPProtocolTests.test_document_switch_and_invalid_schema_are_tool_errors) ... Tool 'get_latest_region' rejected arguments: ['limit']
+Tool 'get_latest_region' failed: 'Error executing tool get_latest_region: ��ҳ�ڼ������ѱ仯����ӵ�һҳ���¶�ȡ��'
+Tool 'get_cell_details' failed: 'Error executing tool get_cell_details: cell_id �������ύ�����ڡ�'
+Tool 'apply_region_edits' failed: 'Error executing tool apply_region_edits: ԭ�ĵ���Ԫ���ѱ仯���������ύ����'
+ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 7.401s
+
+OK

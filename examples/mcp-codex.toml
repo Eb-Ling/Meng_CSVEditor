@@ -1,0 +1,6 @@
+# 把 D:/CSV工具 改成你解压后两个 EXE 所在的文件夹。
+[mcp_servers.meng_csv_editor]
+command = "D:/CSV工具/Meng_CSVEditor_MCP.exe"
+args = []
+startup_timeout_sec = 30
+tool_timeout_sec = 30

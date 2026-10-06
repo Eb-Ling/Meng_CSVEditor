@@ -58,10 +58,17 @@ class EditorTests(unittest.TestCase):
 
     def load(self, rows):
         self.window.delegate.commit_active_editor()
-        self.window.table.sortByColumn(-1, Qt.AscendingOrder)
-        self.window.model.load_data(rows)
+        # These fixtures describe body rows; the file has a real heading record.
+        width = max((len(row) for row in rows), default=0)
+        self.window.model.load_data([[f'字段{column + 1}' for column in range(width)], *rows])
         self.window.undo_stack.clear()
         APP.processEvents()
+
+    def body(self):
+        return self.window.model.get_all_data()[1:]
+
+    def body_grid(self):
+        return self.window.model._data[1:]
 
     def current(self, row, column):
         index = self.window.proxy.index(row, column)
@@ -83,7 +90,7 @@ class EditorTests(unittest.TestCase):
         return editor
 
     def make_dirty(self):
-        self.window.undo_stack.push(CellEditCommand(self.window.model, 0, 0, '', 'unsaved'))
+        self.window.undo_stack.push(CellEditCommand(self.window.model, 1, 0, '', 'unsaved'))
 
     def test_save_as_cancel_blocks_discard(self):
         self.make_dirty()
@@ -92,7 +99,7 @@ class EditorTests(unittest.TestCase):
             self.assertFalse(self.window._confirm_discard())
         self.assertFalse(self.window.undo_stack.isClean())
         self.assertIsNone(self.window._filepath)
-        self.assertEqual(self.window.model._data[0][0], 'unsaved')
+        self.assertEqual(self.body_grid()[0][0], 'unsaved')
 
     def test_failed_save_blocks_close_and_preserves_path(self):
         self.make_dirty()
@@ -122,8 +129,8 @@ class EditorTests(unittest.TestCase):
             QTest.keyClick(editor, Qt.Key_S, Qt.ControlModifier)
             APP.processEvents()
         writer.assert_called_once()
-        self.assertEqual(writer.call_args.args[1], [['latest\nline']])
-        self.assertEqual(self.window.model._data, [['latest\nline']])
+        self.assertEqual(writer.call_args.args[1], [['字段1'], ['latest\nline']])
+        self.assertEqual(self.body_grid(), [['latest\nline']])
         self.assertTrue(self.window.undo_stack.isClean())
         self.assertIsNone(self.window.delegate._active_editor)
 
@@ -133,7 +140,7 @@ class EditorTests(unittest.TestCase):
         with patch('csv_editor.QMessageBox.question', return_value=QMessageBox.Cancel) as question:
             self.assertFalse(self.window._confirm_discard())
         question.assert_called_once()
-        self.assertEqual(self.window.model._data, [['changed']])
+        self.assertEqual(self.body_grid(), [['changed']])
         self.assertFalse(self.window.undo_stack.isClean())
 
     def test_opening_crlf_cell_editor_does_not_change_data(self):
@@ -142,7 +149,7 @@ class EditorTests(unittest.TestCase):
         self.active_editor()
         self.assertFalse(self.window.delegate.has_pending_changes())
         self.window.delegate.commit_active_editor()
-        self.assertEqual(self.window.model._data, [[original]])
+        self.assertEqual(self.body_grid(), [[original]])
         self.assertTrue(self.window.undo_stack.isClean())
         self.assertEqual(self.window.undo_stack.count(), 0)
 
@@ -151,12 +158,12 @@ class EditorTests(unittest.TestCase):
         self.load(rows)
         self.current(0, 1)
         self.window._delete_col()
-        self.assertEqual(self.window.model._data, [['A1', 'C1'], ['A2', 'C2'], ['A3', 'C3']])
+        self.assertEqual(self.body_grid(), [['A1', 'C1'], ['A2', 'C2'], ['A3', 'C3']])
         self.window.undo_stack.undo()
-        self.assertEqual(self.window.model._data, rows)
+        self.assertEqual(self.body_grid(), rows)
         self.window.undo_stack.redo()
         self.assertEqual(self.window.model.columnCount(), 2)
-        self.assertIn('3 行 x 2 列', self.window.lbl_size.text())
+        self.assertIn('4 行 x 2 列', self.window.lbl_size.text())
 
     def test_delete_last_row_then_undo_keeps_column_width(self):
         rows = [['left', 'middle', 'right']]
@@ -164,7 +171,7 @@ class EditorTests(unittest.TestCase):
         self.current(0, 0)
         self.window._delete_row()
         self.window.undo_stack.undo()
-        self.assertEqual(self.window.model._data, rows)
+        self.assertEqual(self.body_grid(), rows)
         self.assertEqual(self.window.model.columnCount(), 3)
 
     def test_paste_growth_is_one_complete_undo_step(self):
@@ -172,34 +179,34 @@ class EditorTests(unittest.TestCase):
         self.current(0, 0)
         QApplication.clipboard().setText('a\tb\tc\r\nd\te\tf\r\ng\th\ti\r\n')
         self.window._paste()
-        self.assertEqual(self.window.model._data, [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']])
+        self.assertEqual(self.body_grid(), [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']])
         self.assertEqual(self.window.undo_stack.count(), 1)
         self.window.undo_stack.undo()
-        self.assertEqual(self.window.model._data, [['original']])
+        self.assertEqual(self.body_grid(), [['original']])
         self.assertEqual(self.window.model.columnCount(), 1)
         self.assertTrue(self.window.undo_stack.isClean())
-        self.assertIn('1 行 x 1 列', self.window.lbl_size.text())
+        self.assertIn('2 行 x 1 列', self.window.lbl_size.text())
         self.window.undo_stack.redo()
-        self.assertEqual(self.window.model._data[-1], ['g', 'h', 'i'])
+        self.assertEqual(self.body_grid()[-1], ['g', 'h', 'i'])
 
-    def test_sorted_copy_uses_selected_visible_order(self):
+    def test_sort_attempt_does_not_reorder_copied_rows(self):
         self.load([['c', 'C'], ['a', 'A'], ['b', 'B']])
         self.window.table.sortByColumn(0, Qt.AscendingOrder)
         self.select_rectangle(0, 0, 1, 1)
         self.window._copy()
         block = list(csv.reader(io.StringIO(QApplication.clipboard().text()), delimiter='\t'))
-        self.assertEqual(block, [['a', 'A'], ['b', 'B']])
+        self.assertEqual(block, [['c', 'C'], ['a', 'A']])
 
-    def test_sorted_paste_targets_snapshot_before_sort_keys_change(self):
+    def test_sort_attempt_does_not_move_paste_targets(self):
         rows = [['c', 'C'], ['a', 'A'], ['b', 'B']]
         self.load(rows)
         self.window.table.sortByColumn(0, Qt.AscendingOrder)
         self.current(0, 0)
         QApplication.clipboard().setText('z\tZ\r\ny\tY\r\n')
         self.window._paste()
-        self.assertEqual(self.window.model._data, [['c', 'C'], ['z', 'Z'], ['y', 'Y']])
+        self.assertEqual(self.body_grid(), [['z', 'Z'], ['y', 'Y'], ['b', 'B']])
         self.window.undo_stack.undo()
-        self.assertEqual(self.window.model._data, rows)
+        self.assertEqual(self.body_grid(), rows)
 
     def test_copy_paste_roundtrips_multiline_tabs_and_quotes(self):
         rows = [['one\ttwo', 'line1\r\nline2', 'say "hello"'], ['中文', '', 'tail']]
@@ -209,7 +216,7 @@ class EditorTests(unittest.TestCase):
         self.load([['']])
         self.current(0, 0)
         self.window._paste()
-        self.assertEqual(self.window.model._data, rows)
+        self.assertEqual(self.body_grid(), rows)
 
     def test_copy_and_paste_follow_moved_column_order(self):
         self.load([['left', 'middle', 'right']])
@@ -221,9 +228,9 @@ class EditorTests(unittest.TestCase):
         self.current(0, 2)
         QApplication.clipboard().setText('R\tL\tM')
         self.window._paste()
-        self.assertEqual(self.window.model._data, [['L', 'M', 'R']])
+        self.assertEqual(self.body_grid(), [['L', 'M', 'R']])
 
-    def test_find_current_column_advances_in_sorted_visible_order(self):
+    def test_find_current_column_advances_in_file_order_despite_sort_attempt(self):
         self.load([['c', 'hit C'], ['a', 'hit A'], ['b', 'hit B']])
         self.window.table.sortByColumn(0, Qt.AscendingOrder)
         self.current(0, 1)
@@ -239,11 +246,11 @@ class EditorTests(unittest.TestCase):
         self.load(rows)
         self.current(0, 1)
         self.window._do_replace_all('cat', r'\g<1>', False, True)
-        self.assertEqual(self.window.model._data, [['cat', r'\g<1>'], ['catcat', r'\g<1>']])
+        self.assertEqual(self.body_grid(), [['cat', r'\g<1>'], ['catcat', r'\g<1>']])
         self.assertFalse(self.window.undo_stack.isClean())
         self.assertEqual(self.window.undo_stack.count(), 1)
         self.window.undo_stack.undo()
-        self.assertEqual(self.window.model._data, rows)
+        self.assertEqual(self.body_grid(), rows)
         self.assertTrue(self.window.undo_stack.isClean())
 
     def test_empty_replace_is_noop_and_noop_replace_keeps_clean(self):
@@ -252,7 +259,7 @@ class EditorTests(unittest.TestCase):
         self.window._do_replace('', 'new', False, False)
         self.window._do_replace_all('', 'new', False, False)
         self.window._do_replace_all('text', 'text', True, False)
-        self.assertEqual(self.window.model._data, [['text']])
+        self.assertEqual(self.body_grid(), [['text']])
         self.assertEqual(self.window.undo_stack.count(), 0)
         self.assertTrue(self.window.undo_stack.isClean())
 
@@ -267,11 +274,11 @@ class EditorTests(unittest.TestCase):
         QApplication.clipboard().setText('pasted\ntext')
         QTest.keyClick(editor, Qt.Key_V, Qt.ControlModifier)
         self.assertEqual(editor.toPlainText(), 'pasted\ntext')
-        self.assertEqual(self.window.model._data, [['original']])
+        self.assertEqual(self.body_grid(), [['original']])
         self.assertEqual(self.window.undo_stack.count(), 0)
         QTest.keyClick(editor, Qt.Key_Escape)
         APP.processEvents()
-        self.assertEqual(self.window.model._data, [['original']])
+        self.assertEqual(self.body_grid(), [['original']])
 
     def test_long_editor_stays_inside_viewport_and_escape_restores_row(self):
         self.load([['a', 'b'], ['c', 'd']])
@@ -326,7 +333,7 @@ class EditorTests(unittest.TestCase):
             self.assertIn('utf-8', self.window.lbl_size.text())
 
     def test_save_as_tsv_uses_tab_and_success_updates_title(self):
-        self.load([['left', 'right']])
+        self.window.model.load_data([['left', 'right']])
         with tempfile.TemporaryDirectory() as directory:
             destination = Path(directory) / 'saved.tsv'
             with patch('csv_editor.QFileDialog.getSaveFileName', return_value=(str(destination), '')):
@@ -380,7 +387,7 @@ class EditorTests(unittest.TestCase):
             restarted.deleteLater()
 
     def test_bom_enabled_save_and_save_as_emit_exactly_one_bom(self):
-        self.load([['head', 'value'], ['row', 'data']])
+        self.window.model.load_data([['head', 'value'], ['row', 'data']])
         self.window._set_bom_preference(True)
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'saved.csv'
@@ -397,7 +404,7 @@ class EditorTests(unittest.TestCase):
             self.assertEqual(self.window._csv_format.bom, codecs.BOM_UTF8)
 
     def test_disabling_bom_removes_existing_bom_on_next_save(self):
-        self.load([['text']])
+        self.window.model.load_data([['text']])
         with tempfile.TemporaryDirectory() as directory:
             destination = Path(directory) / 'saved.csv'
             self.window._filepath = str(destination)
@@ -410,7 +417,7 @@ class EditorTests(unittest.TestCase):
             self.assertEqual(self.window._csv_format.bom, b'')
 
     def test_bom_setting_keeps_gbk_output_without_bom(self):
-        self.load([['名称', '数值']])
+        self.window.model.load_data([['名称', '数值']])
         self.window._csv_format = CsvFormat(encoding='gbk')
         self.window._set_bom_preference(True)
         with tempfile.TemporaryDirectory() as directory:
